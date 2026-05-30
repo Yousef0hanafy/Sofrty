@@ -9,7 +9,7 @@ import { ProductGrid } from '@/features/menu/components/product-grid';
 import { ProductModal } from '@/features/menu/components/product-modal';
 import { AboutSection } from '@/features/menu/components/about-section';
 import { ServicesSection } from '@/features/menu/components/services-section';
-import { FloatingContactBar } from '@/features/menu/components/floating-contact-bar';
+
 import { Footer } from '@/features/menu/components/footer';
 import { useState, useSyncExternalStore } from 'react';
 import type { Product } from '@/types';
@@ -86,10 +86,7 @@ export default function Home() {
           <Footer />
         </div>
 
-        {/* Floating Contact Bar */}
-        <FloatingContactBar />
-
-        {/* Product Detail Modal */}
+          {/* Product Detail Modal */}
         <ProductModal
           product={selectedProduct}
           open={!!selectedProduct}

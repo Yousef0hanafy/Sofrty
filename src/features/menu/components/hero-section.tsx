@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Instagram, MapPin, Phone } from 'lucide-react';
 import { useLanguage } from './language-context';
-import { MadaqLogo } from './madaq-logo';
 import type { Restaurant, ApiResponse } from '@/types';
 
 export function HeroSection() {
@@ -43,15 +42,21 @@ export function HeroSection() {
 
         {/* Centered content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4">
-          {/* Logo */}
+          {/* Logo — fits inside circle */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
           >
-            <div className="w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] rounded-full bg-white/10 backdrop-blur-md border-2 border-[#d4af37]/50 flex items-center justify-center overflow-hidden shadow-xl shadow-black/20">
-              <MadaqLogo size={110} priority />
+            <div className="w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] rounded-full bg-white/95 flex items-center justify-center overflow-hidden shadow-xl shadow-black/20 border-2 border-[#d4af37]/50">
+              <Image
+                src="/madaq-logo.png"
+                alt="Madaq"
+                fill
+                priority
+                className="object-contain p-4"
+                sizes="130px"
+              />
             </div>
           </motion.div>
 
