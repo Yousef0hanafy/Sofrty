@@ -7,7 +7,7 @@ export const restaurantDefaults = {
     "مطعم مضيق - تجربة طعام استثنائية تجمع بين أصالة المذاق العربي الأصيل وأحدث تقنيات الطبخ الحديث. نقدم لكم أشهى الأطباق المحضرة من أجود المكونات الطازجة بعناية فائقة.",
   descriptionEn:
     "Madaq Restaurant - An exceptional dining experience that blends authentic Arabian flavors with modern culinary techniques. We serve the finest dishes prepared from the freshest premium ingredients with meticulous care.",
-  heroImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=600&fit=crop",
+  heroImage: "/madaq-hero.jpg",
   instagramUrl: "https://instagram.com/madaq",
   whatsappNumber: "+966501234567",
   mapsUrl: "https://maps.google.com/?q=25.2048,55.2708",

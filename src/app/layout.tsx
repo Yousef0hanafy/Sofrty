@@ -39,12 +39,12 @@ export const metadata: Metadata = {
     "arabian food",
   ],
   icons: {
-    icon: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=64&h=64&fit=crop",
+    icon: "/madaq-logo.png",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#c8a96e",
+  themeColor: "#0a4d3a",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,

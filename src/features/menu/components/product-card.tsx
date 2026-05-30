@@ -21,12 +21,10 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
   const description = language === 'ar' ? product.descriptionAr : product.descriptionEn;
   const imageUrl = product.imageUrl;
 
-  // Get first variant's calories (or lowest)
   const calories = product.variants.length > 0
     ? Math.min(...product.variants.map((v) => v.calories))
     : 0;
 
-  // Get price range
   const minPrice = product.variants.length > 0
     ? Math.min(...product.variants.map((v) => v.price))
     : 0;
@@ -38,7 +36,6 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
     ? minPrice === maxPrice ? `${minPrice} ر.س` : `${minPrice} - ${maxPrice} ر.س`
     : minPrice === maxPrice ? `${minPrice} SAR` : `${minPrice} - ${maxPrice} SAR`;
 
-  // Parse tags
   const tags = product.tags
     ? product.tags.split(',').map((t) => t.trim()).filter(Boolean)
     : [];
@@ -47,12 +44,16 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
     t.includes('مبيعا') || t.includes('بيع') || t.includes('popular') || t.toLowerCase().includes('best')
   );
 
+  const isChefPick = tags.some(t =>
+    t.includes('شيف') || t.includes('chef') || t.includes('مميز')
+  );
+
   return (
     <motion.button
       type="button"
       whileTap={{ scale: 0.98 }}
       onClick={() => onClick(product)}
-      className="menu-card w-full text-start bg-card border border-border/40 rounded-2xl overflow-hidden cursor-pointer group"
+      className="menu-card w-full text-start bg-card border border-border/50 rounded-2xl overflow-hidden cursor-pointer group"
     >
       <div className="flex gap-3 p-3">
         {/* Image */}
@@ -74,7 +75,14 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
           {/* Popular badge on image */}
           {isPopular && (
             <div className="absolute top-1 start-1">
-              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-primary text-primary-foreground">
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#0a4d3a] text-[#d4af37]">
+                <Star className="size-2.5" />
+              </span>
+            </div>
+          )}
+          {isChefPick && (
+            <div className="absolute top-1 end-1">
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#d4af37] text-white">
                 <Star className="size-2.5" />
               </span>
             </div>
@@ -88,14 +96,12 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
               {name}
             </h3>
 
-            {/* Description (always visible, truncated) */}
             {description && (
               <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
                 {description}
               </p>
             )}
 
-            {/* Tags */}
             {tags.length > 0 && (
               <div className="flex gap-1 flex-wrap">
                 {tags.slice(0, 2).map((tag) => (
@@ -114,20 +120,20 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
           {/* Bottom row: calories + price */}
           <div className="flex items-center justify-between mt-1.5">
             <div className="flex items-center gap-1 text-[11px] text-muted-foreground">
-              <Flame className="size-3 text-orange-400" />
+              <Flame className="size-3 text-[#d4af37]" />
               <span>
                 {calories > 0 ? (
                   <>
-                    {calories} {language === 'ar' ? 'سعرة حرارية' : 'cal'}
+                    {calories} {language === 'ar' ? 'سعرة' : 'cal'}
                   </>
                 ) : (
-                  language === 'ar' ? '---' : '---'
+                  '---'
                 )}
               </span>
             </div>
 
             {minPrice > 0 && (
-              <span className="text-xs font-semibold text-primary">
+              <span className="text-xs font-bold text-[#0a4d3a] dark:text-[#d4af37]">
                 {priceText}
               </span>
             )}

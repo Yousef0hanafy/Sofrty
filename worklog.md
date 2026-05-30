@@ -55,3 +55,33 @@ Stage Summary:
 - Dev server running on port 3000
 - Database properly seeded with all menu data
 - Both client menu and admin panel accessible
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Redesign landing page to match reference design - dark green + gold theme, circular logo, navigation tabs, circular category icons, remove sticky TopBar
+
+Work Log:
+- Generated AI logo image at `/public/madaq-logo.png`
+- Generated AI hero image at `/public/madaq-hero.jpg`
+- Created `madaq-logo.tsx` SVG component with ornate circular design (dark green center, gold border, Arabic text)
+- Created `navigation-tabs.tsx` component with dark green (#0A4D3A) background and gold underline tabs
+- Completely rewrote `hero-section.tsx`: full-width hero image with centered circular logo, restaurant name, social links, gradient fade
+- Completely rewrote `category-bar.tsx`: circular category icons with gold border highlight on selection, "All" option
+- Rewrote `globals.css` with dark green (#0A4D3A) + gold (#D4AF37) color scheme, cream background (#F5F0E1)
+- Rewrote `footer.tsx` with dark green background and gold accents
+- Rewrote `floating-contact-bar.tsx` with dark green backdrop and gold border
+- Updated `product-card.tsx` with green+gold color accents for badges and prices
+- Removed sticky TopBar (language switch + theme toggle) from `page.tsx`
+- Updated seed data heroImage to use local `/madaq-hero.jpg`
+- Updated layout.tsx favicon to use generated logo, themeColor to #0a4d3a
+- Zero lint errors, all APIs verified returning 200
+
+Stage Summary:
+- Complete visual redesign matching reference: dark green + gold luxury restaurant theme
+- Circular SVG logo with ornate gold border and Arabic calligraphy
+- Full-width hero with centered logo, name, social links
+- Navigation tabs with dark green bar and gold active indicator
+- Circular category icons with gold border selection effect
+- No sticky floating buttons - clean interface
+- Admin only accessible via direct /admin URL

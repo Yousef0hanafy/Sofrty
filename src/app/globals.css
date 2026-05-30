@@ -3,74 +3,79 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Madaq Restaurant Theme Colors */
+/* Madaq Restaurant Theme - Dark Green + Gold */
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.99 0.002 90);
-  --foreground: oklch(0.17 0.02 60);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.17 0.02 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.17 0.02 60);
-  --primary: oklch(0.55 0.12 75);
-  --primary-foreground: oklch(0.98 0.005 90);
-  --secondary: oklch(0.96 0.008 75);
-  --secondary-foreground: oklch(0.25 0.04 60);
-  --muted: oklch(0.96 0.005 75);
-  --muted-foreground: oklch(0.50 0.03 60);
-  --accent: oklch(0.94 0.02 75);
-  --accent-foreground: oklch(0.25 0.04 60);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.91 0.01 75);
-  --input: oklch(0.91 0.01 75);
-  --ring: oklch(0.55 0.12 75);
-  --chart-1: oklch(0.55 0.12 75);
-  --chart-2: oklch(0.65 0.10 150);
-  --chart-3: oklch(0.60 0.15 30);
-  --chart-4: oklch(0.70 0.08 200);
-  --chart-5: oklch(0.75 0.12 60);
-  --sidebar: oklch(0.97 0.005 90);
-  --sidebar-foreground: oklch(0.17 0.02 60);
-  --sidebar-primary: oklch(0.55 0.12 75);
-  --sidebar-primary-foreground: oklch(0.98 0.005 90);
-  --sidebar-accent: oklch(0.94 0.02 75);
-  --sidebar-accent-foreground: oklch(0.25 0.04 60);
-  --sidebar-border: oklch(0.91 0.01 75);
-  --sidebar-ring: oklch(0.55 0.12 75);
+  --madaq-dark-green: #0a4d3a;
+  --madaq-green-light: #0f6b4f;
+  --madaq-gold: #d4af37;
+  --madaq-gold-light: #e8cc6e;
+  --madaq-cream: #f5f0e1;
+  --background: var(--madaq-cream);
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  --primary: var(--madaq-dark-green);
+  --primary-foreground: var(--madaq-cream);
+  --secondary: #e8e3d4;
+  --secondary-foreground: #2d2d2d;
+  --muted: #e8e3d4;
+  --muted-foreground: #7a7a6e;
+  --accent: var(--madaq-gold);
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc2626;
+  --border: #d4cfbf;
+  --input: #d4cfbf;
+  --ring: var(--madaq-dark-green);
+  --chart-1: var(--madaq-dark-green);
+  --chart-2: var(--madaq-gold);
+  --chart-3: #2d8b6a;
+  --chart-4: #8b6c2d;
+  --chart-5: #1a6b4a;
+  --sidebar: #f0ebe0;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: var(--madaq-dark-green);
+  --sidebar-primary-foreground: var(--madaq-cream);
+  --sidebar-accent: var(--madaq-gold);
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #d4cfbf;
+  --sidebar-ring: var(--madaq-dark-green);
 }
 
 .dark {
-  --background: oklch(0.15 0.01 60);
-  --foreground: oklch(0.94 0.01 90);
-  --card: oklch(0.20 0.01 60);
-  --card-foreground: oklch(0.94 0.01 90);
-  --popover: oklch(0.20 0.01 60);
-  --popover-foreground: oklch(0.94 0.01 90);
-  --primary: oklch(0.65 0.14 75);
-  --primary-foreground: oklch(0.15 0.01 60);
-  --secondary: oklch(0.25 0.02 60);
-  --secondary-foreground: oklch(0.94 0.01 90);
-  --muted: oklch(0.25 0.02 60);
-  --muted-foreground: oklch(0.65 0.03 75);
-  --accent: oklch(0.25 0.02 60);
-  --accent-foreground: oklch(0.94 0.01 90);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.30 0.02 60);
-  --input: oklch(0.30 0.02 60);
-  --ring: oklch(0.65 0.14 75);
-  --chart-1: oklch(0.65 0.14 75);
-  --chart-2: oklch(0.55 0.10 150);
-  --chart-3: oklch(0.60 0.15 30);
-  --chart-4: oklch(0.70 0.08 200);
-  --chart-5: oklch(0.75 0.12 60);
-  --sidebar: oklch(0.17 0.01 60);
-  --sidebar-foreground: oklch(0.94 0.01 90);
-  --sidebar-primary: oklch(0.65 0.14 75);
-  --sidebar-primary-foreground: oklch(0.15 0.01 60);
-  --sidebar-accent: oklch(0.25 0.02 60);
-  --sidebar-accent-foreground: oklch(0.94 0.01 90);
-  --sidebar-border: oklch(0.30 0.02 60);
-  --sidebar-ring: oklch(0.65 0.14 75);
+  --background: #0d1117;
+  --foreground: #e6e1d3;
+  --card: #161b22;
+  --card-foreground: #e6e1d3;
+  --popover: #161b22;
+  --popover-foreground: #e6e1d3;
+  --primary: #0f6b4f;
+  --primary-foreground: #f5f0e1;
+  --secondary: #21262d;
+  --secondary-foreground: #e6e1d3;
+  --muted: #21262d;
+  --muted-foreground: #8b8579;
+  --accent: var(--madaq-gold);
+  --accent-foreground: #1a1a1a;
+  --destructive: #f87171;
+  --border: #30363d;
+  --input: #30363d;
+  --ring: var(--madaq-gold);
+  --chart-1: #0f6b4f;
+  --chart-2: var(--madaq-gold);
+  --chart-3: #2d8b6a;
+  --chart-4: #c9a227;
+  --chart-5: #1a8b5a;
+  --sidebar: #0d1117;
+  --sidebar-foreground: #e6e1d3;
+  --sidebar-primary: var(--madaq-gold);
+  --sidebar-primary-foreground: #0d1117;
+  --sidebar-accent: #21262d;
+  --sidebar-accent-foreground: #e6e1d3;
+  --sidebar-border: #30363d;
+  --sidebar-ring: var(--madaq-gold);
 }
 
 @theme inline {
@@ -131,11 +136,13 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: oklch(0.7 0.05 75);
+  background: var(--madaq-gold);
   border-radius: 99px;
+  opacity: 0.5;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: oklch(0.55 0.12 75);
+  background: var(--madaq-gold);
+  opacity: 0.8;
 }
 
 /* RTL support utilities */
@@ -160,11 +167,19 @@
 
 /* Gold accent for Madaq branding */
 .gold-accent {
-  color: oklch(0.55 0.12 75);
+  color: var(--madaq-gold);
 }
 
 .bg-gold-accent {
-  background-color: oklch(0.55 0.12 75);
+  background-color: var(--madaq-gold);
+}
+
+.bg-madaq-green {
+  background-color: var(--madaq-dark-green);
+}
+
+.text-madaq-gold {
+  color: var(--madaq-gold);
 }
 
 /* Optimized card hover */
@@ -173,8 +188,30 @@
 }
 .menu-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px -5px oklch(0.55 0.06 75 / 0.15);
+  box-shadow: 0 8px 25px -5px rgba(10, 77, 58, 0.15);
 }
 .dark .menu-card:hover {
-  box-shadow: 0 8px 25px -5px oklch(0 0 0 / 0.4);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo shimmer animation */
+@keyframes shimmer {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+.logo-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Circular category hover */
+.category-circle {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.category-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px var(--madaq-gold), 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+.category-circle.active {
+  box-shadow: 0 0 0 3px var(--madaq-gold), 0 0 15px rgba(212, 175, 55, 0.4);
 }
