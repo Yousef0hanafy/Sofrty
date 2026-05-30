@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "arabian food",
   ],
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.svg",
   },
 };
 
