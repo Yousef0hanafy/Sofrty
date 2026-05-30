@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  allowedDevOrigins: [
+    "*.space-z.ai",
+  ],
   typescript: {
     ignoreBuildErrors: true,
   },

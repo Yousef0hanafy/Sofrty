@@ -13,7 +13,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Separator } from '@/components/ui/separator';
-import { Flame, AlertTriangle } from 'lucide-react';
+import { Flame, AlertTriangle, X, Info } from 'lucide-react';
 import { useLanguage } from './language-context';
 import type { Product } from '@/types';
 
@@ -27,7 +27,6 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
   const { language } = useLanguage();
   const [selectedVariantIndex, setSelectedVariantIndex] = useState<string>('0');
 
-  // Reset variant selection when product changes
   const handleOpenChange = (newOpen: boolean) => {
     if (!newOpen) {
       setSelectedVariantIndex('0');
@@ -49,46 +48,52 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
     : `${selectedVariant.price} SAR`;
 
   const caloriesText = selectedVariant.calories
-    ? `${selectedVariant.calories} ${language === 'ar' ? 'سعرة' : 'cal'}`
+    ? `${selectedVariant.calories} ${language === 'ar' ? 'سعرة حرارية' : 'calories'}`
     : null;
 
-  // Parse tags
   const tags = product.tags
     ? product.tags.split(',').map((t) => t.trim()).filter(Boolean)
     : [];
 
-  // Parse allergens
   const allergens = product.allergens
     ? product.allergens.split(',').map((a) => a.trim()).filter(Boolean)
     : [];
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-lg max-h-[85vh] overflow-y-auto p-0 gap-0">
+      <DialogContent className="sm:max-w-md max-h-[85vh] overflow-y-auto p-0 gap-0 rounded-2xl">
         {/* Image */}
-        <div className="relative h-[240px] w-full rounded-t-lg overflow-hidden bg-secondary">
+        <div className="relative h-[220px] w-full overflow-hidden bg-secondary/50">
           {imageUrl ? (
             <Image
               src={imageUrl}
               alt={name}
               fill
               className="object-cover"
-              sizes="(max-width: 640px) 100vw, 512px"
+              sizes="(max-width: 640px) 100vw, 448px"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-              <Flame className="size-12 opacity-20" />
+              <Flame className="size-10 opacity-20" />
             </div>
           )}
+          {/* Close button overlay */}
+          <button
+            onClick={() => handleOpenChange(false)}
+            className="absolute top-3 end-3 w-8 h-8 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/50 transition-colors"
+          >
+            <X className="size-4" />
+          </button>
         </div>
 
         <div className="p-5 space-y-4">
-          <DialogHeader className="text-start gap-2">
-            <DialogTitle className="text-xl font-bold leading-tight">
+          {/* Name */}
+          <DialogHeader className="text-start gap-1 p-0">
+            <DialogTitle className="text-lg font-bold leading-tight">
               {name}
             </DialogTitle>
             {description && (
-              <DialogDescription className="text-sm leading-relaxed">
+              <DialogDescription className="text-sm leading-relaxed text-muted-foreground">
                 {description}
               </DialogDescription>
             )}
@@ -108,7 +113,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
           {/* Variant selector */}
           {product.variants.length > 1 && (
             <div className="space-y-2">
-              <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+              <p className="text-xs font-medium text-muted-foreground">
                 {language === 'ar' ? 'اختر الحجم' : 'Choose size'}
               </p>
               <ToggleGroup
@@ -117,60 +122,74 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
                 onValueChange={(val) => {
                   if (val) setSelectedVariantIndex(val);
                 }}
-                className="w-full border border-border/60 rounded-lg overflow-hidden"
+                className="w-full border border-border/50 rounded-xl overflow-hidden bg-muted/30"
               >
                 {product.variants.map((variant, idx) => (
                   <ToggleGroupItem
                     key={variant.id}
                     value={String(idx)}
-                    className="flex-1 py-2 text-sm data-[state=on]:bg-primary data-[state=on]:text-primary-foreground"
+                    className="flex-1 py-2.5 text-sm data-[state=on]:bg-primary data-[state=on]:text-primary-foreground rounded-none"
                   >
-                    <span>{variant.label}</span>
+                    <span className="font-medium">{variant.label}</span>
                   </ToggleGroupItem>
                 ))}
               </ToggleGroup>
             </div>
           )}
 
-          <Separator />
+          <Separator className="opacity-50" />
 
-          {/* Price and calories */}
-          <div className="flex items-center justify-between">
+          {/* Price and calories - prominent */}
+          <div className="flex items-end justify-between">
             <AnimatePresence mode="wait">
-              <motion.span
+              <motion.div
                 key={selectedVariant.id}
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.15 }}
-                className="text-2xl font-bold text-primary"
+                className="space-y-0.5"
               >
-                {priceText}
-              </motion.span>
+                <div className="flex items-center gap-2">
+                  <span className="text-xl font-bold text-primary">
+                    {priceText}
+                  </span>
+                </div>
+                {caloriesText && (
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Flame className="size-3.5 text-orange-400" />
+                    <span>{caloriesText}</span>
+                  </div>
+                )}
+              </motion.div>
             </AnimatePresence>
-
-            {caloriesText && (
-              <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                <Flame className="size-3.5 text-orange-400" />
-                <span>{caloriesText}</span>
-              </div>
-            )}
           </div>
 
           {/* Allergens warning */}
           {allergens.length > 0 && (
             <>
-              <Separator />
-              <div className="flex items-start gap-2 rounded-lg bg-amber-50 dark:bg-amber-950/30 p-3">
+              <Separator className="opacity-50" />
+              <div className="flex items-start gap-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 p-3.5">
                 <AlertTriangle className="size-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-                <div className="text-xs space-y-0.5">
-                  <p className="font-medium text-amber-700 dark:text-amber-300">
-                    {language === 'ar' ? 'تحذير الحساسية' : 'Allergy Warning'}
+                <div className="text-xs space-y-1">
+                  <p className="font-semibold text-amber-700 dark:text-amber-300">
+                    {language === 'ar' ? 'مسببات حساسية' : 'Allergens'}
                   </p>
-                  <p className="text-amber-600/80 dark:text-amber-400/80">
+                  <p className="text-amber-600/80 dark:text-amber-400/80 leading-relaxed">
                     {allergens.join(' • ')}
                   </p>
                 </div>
+              </div>
+            </>
+          )}
+
+          {/* No allergens */}
+          {allergens.length === 0 && product.allergens && (
+            <>
+              <Separator className="opacity-50" />
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <Info className="size-3.5" />
+                <span>{language === 'ar' ? 'مسببات حساسية: ( لا يوجد )' : 'Allergens: ( None )'}</span>
               </div>
             </>
           )}

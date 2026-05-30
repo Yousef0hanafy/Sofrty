@@ -22,10 +22,10 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
 
   const categories = response?.data ?? [];
 
-  const allLabel = language === 'ar' ? 'الكل' : 'All';
+  const allLabel = language === 'ar' ? 'منيو المطعم' : 'Restaurant Menu';
 
   return (
-    <div className="sticky top-0 z-20 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <div className="sticky top-0 z-20 bg-background/90 backdrop-blur-md border-b border-border/40">
       <div className="w-full max-w-5xl mx-auto px-4">
         <div className="hide-scrollbar flex gap-2 overflow-x-auto py-3">
           {/* All category */}
@@ -33,10 +33,10 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
             layout
             onClick={() => onSelectCategory(null)}
             className={cn(
-              'shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors',
+              'shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition-all',
               activeCategoryId === null
-                ? 'bg-primary text-primary-foreground shadow-sm'
-                : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                ? 'bg-foreground text-background shadow-sm'
+                : 'bg-secondary/70 text-secondary-foreground hover:bg-secondary'
             )}
           >
             {allLabel}
@@ -47,7 +47,7 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
             ? Array.from({ length: 5 }).map((_, i) => (
                 <div
                   key={i}
-                  className="shrink-0 h-8 w-20 rounded-full bg-secondary animate-pulse"
+                  className="shrink-0 h-9 w-24 rounded-xl bg-secondary animate-pulse"
                 />
               ))
             : categories.map((cat) => {
@@ -59,10 +59,10 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                     layout
                     onClick={() => onSelectCategory(isActive ? null : cat.id)}
                     className={cn(
-                      'shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors',
+                      'shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition-all',
                       isActive
-                        ? 'bg-primary text-primary-foreground shadow-sm'
-                        : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                        ? 'bg-foreground text-background shadow-sm'
+                        : 'bg-secondary/70 text-secondary-foreground hover:bg-secondary'
                     )}
                   >
                     {label}

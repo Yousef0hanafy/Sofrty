@@ -53,17 +53,17 @@ export function FloatingContactBar() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 2, ease: 'easeOut' }}
+      transition={{ duration: 0.3, delay: 1.5, ease: 'easeOut' }}
       className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30"
     >
-      <div className="flex items-center gap-1 bg-background/80 backdrop-blur-lg rounded-full border border-border/40 shadow-lg px-2 py-1.5 h-12">
+      <div className="flex items-center gap-0.5 bg-background/90 backdrop-blur-lg rounded-2xl border border-border/30 shadow-lg px-1.5 py-1">
         {availableLinks.map((link) => (
           <a
             key={link.label}
             href={link.href!}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-secondary transition-colors"
+            className="flex items-center justify-center w-10 h-10 rounded-xl hover:bg-secondary transition-colors"
             aria-label={link.label}
           >
             <link.icon className={`size-[18px] ${link.color}`} />

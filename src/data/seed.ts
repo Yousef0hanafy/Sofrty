@@ -26,7 +26,7 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Grilled Chicken Meal",
         descriptionAr: "دجاج طازج مشوي على الفحم مع أرز بسمتي وبطاطا مشوية وسلطات طازجة",
         descriptionEn: "Fresh charcoal-grilled chicken served with basmati rice, grilled potatoes, and fresh salads",
-        imageUrl: "https://images.unsplash.com/photo-1598103442097-8b74f7ef003c?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&h=400&fit=crop",
         tags: "مقترح الشيف,الأكثر مبيعاً",
         allergens: "لا يحتوي على منتجات الألبان",
         variants: [
@@ -119,7 +119,7 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Falafel Sandwich",
         descriptionAr: "فلافل طازجة مقرمشة مع سلطة خضار ومخللات وطحينة في خبز عربي",
         descriptionEn: "Crispy fresh falafel with vegetable salad, pickles, and tahini in Arabic bread",
-        imageUrl: "https://images.unsplash.com/photo-1593001874117-c99c800e3eb6?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&h=400&fit=crop",
         tags: "نباتي",
         allergens: "خالٍ من المنتجات الحيوانية",
         variants: [
@@ -276,7 +276,7 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Baklava",
         descriptionAr: "بقلاوة محشوة بالمكسرات مع شيرة العسل والزبدة",
         descriptionEn: "Baklava filled with mixed nuts, honey syrup, and butter",
-        imageUrl: "https://images.unsplash.com/photo-1519676867240-f03562e64571?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1598197068394-7b96e50bb54b?w=600&h=400&fit=crop",
         tags: "تقليدي,فاخر",
         allergens: "يحتوي على القمح والمكسرات ومنتجات الألبان",
         variants: [
@@ -290,7 +290,7 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Om Ali",
         descriptionAr: "حلى أم علي التقليدي بالقشطة والمكسرات والزبيب مع القرفة",
         descriptionEn: "Traditional Om Ali dessert with cream, mixed nuts, raisins, and cinnamon",
-        imageUrl: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&h=400&fit=crop",
         tags: "تقليدي",
         allergens: "يحتوي على منتجات الألبان والقمح والمكسرات",
         variants: [

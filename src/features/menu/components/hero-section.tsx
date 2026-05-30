@@ -3,9 +3,40 @@
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Instagram, MapPin, Phone } from 'lucide-react';
+import { Instagram, MapPin, Phone, Truck, ExternalLink } from 'lucide-react';
 import { useLanguage } from './language-context';
 import type { Restaurant, ApiResponse } from '@/types';
+
+const deliveryPlatforms = [
+  {
+    key: 'jahez',
+    nameAr: 'جاهز',
+    nameEn: 'Jahez',
+    color: '#d32f2f',
+    icon: '🛵',
+  },
+  {
+    key: 'hungerstation',
+    nameAr: 'هنقرستيشن',
+    nameEn: 'HungerStation',
+    color: '#ff6f00',
+    icon: '🏪',
+  },
+  {
+    key: 'mrsool',
+    nameAr: 'مرسول',
+    nameEn: 'Mrsool',
+    color: '#1976d2',
+    icon: '📦',
+  },
+  {
+    key: 'thechefz',
+    nameAr: 'ذا شيفز',
+    nameEn: 'TheChefz',
+    color: '#7b1fa2',
+    icon: '👨‍🍳',
+  },
+];
 
 export function HeroSection() {
   const { language } = useLanguage();
@@ -26,74 +57,105 @@ export function HeroSection() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="relative w-full h-[280px] md:h-[360px] overflow-hidden rounded-b-2xl"
+      transition={{ duration: 0.5 }}
+      className="relative w-full"
     >
-      {/* Background image */}
-      {heroImage ? (
-        <Image
-          src={heroImage}
-          alt={name || 'Restaurant'}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/5 to-background" />
+      {/* Hero Image */}
+      {heroImage && (
+        <div className="relative w-full h-[200px] md:h-[280px] overflow-hidden">
+          <Image
+            src={heroImage}
+            alt={name || 'Restaurant'}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+        </div>
       )}
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-8">
-        <div className="max-w-lg space-y-3">
-          <h1 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg leading-tight">
-            {name || 'مضيق'}
-          </h1>
+      <div className={`relative ${heroImage ? '-mt-24' : 'pt-6'} pb-2 px-5 max-w-5xl mx-auto`}>
+        <div className="space-y-4">
+          {/* Restaurant name */}
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+              {name || 'مضيق'}
+            </h1>
+            {description && (
+              <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed max-w-lg">
+                {description}
+              </p>
+            )}
+          </div>
 
-          {description && (
-            <p className="text-white/85 text-sm md:text-base leading-relaxed max-w-md">
-              {description}
-            </p>
-          )}
-
-          {/* Social links */}
-          <div className="flex items-center gap-3 pt-1">
+          {/* Social links row */}
+          <div className="flex items-center gap-2">
             {restaurant?.instagramUrl && (
               <a
                 href={restaurant.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm text-white hover:bg-white/25 transition-colors"
-                aria-label="Instagram"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium hover:bg-secondary/80 transition-colors"
               >
-                <Instagram className="size-4" />
+                <Instagram className="size-3.5" />
+                <span>Instagram</span>
               </a>
             )}
             {restaurant?.whatsappNumber && (
-              <a
-                href={`https://wa.me/${restaurant.whatsappNumber.replace(/[^0-9]/g, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm text-white hover:bg-white/25 transition-colors"
-                aria-label="WhatsApp"
-              >
-                <Phone className="size-4" />
-              </a>
+              <>
+                <a
+                  href={`https://wa.me/${restaurant.whatsappNumber.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium hover:bg-secondary/80 transition-colors"
+                >
+                  <Phone className="size-3.5" />
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href={`tel:${restaurant.whatsappNumber}`}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium hover:bg-secondary/80 transition-colors"
+                >
+                  <Phone className="size-3.5" />
+                  <span>{language === 'ar' ? 'اتصال' : 'Call'}</span>
+                </a>
+              </>
             )}
             {restaurant?.mapsUrl && (
               <a
                 href={restaurant.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm text-white hover:bg-white/25 transition-colors"
-                aria-label="Location"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-medium hover:bg-secondary/80 transition-colors"
               >
-                <MapPin className="size-4" />
+                <MapPin className="size-3.5" />
+                <span>{language === 'ar' ? 'الموقع' : 'Location'}</span>
               </a>
             )}
+          </div>
+
+          {/* Delivery platforms */}
+          <div>
+            <div className="flex items-center gap-1.5 mb-2">
+              <Truck className="size-3.5 text-primary" />
+              <span className="text-xs font-medium text-muted-foreground">
+                {language === 'ar' ? 'التوصيل' : 'Delivery'}
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {deliveryPlatforms.map((platform) => (
+                <a
+                  key={platform.key}
+                  href="#"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/50 text-xs font-medium text-foreground hover:bg-secondary/50 transition-colors"
+                >
+                  <span>{platform.icon}</span>
+                  <span>{language === 'ar' ? platform.nameAr : platform.nameEn}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

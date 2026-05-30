@@ -97,3 +97,29 @@ Stage Summary:
 - Theme and language switches always accessible
 - Zero lint errors
 - Ultra-fast API response times (5-12ms)
+
+---
+Task ID: 7
+Agent: main
+Task: Redesign client menu to match YallaQR Codes reference style
+
+Work Log:
+- Analyzed two reference sites: blanca.yallaqrcodes.com and dar-alauja.yallaqrcodes.com
+- Identified key design patterns: food-info-first, calorie display, delivery links, clean cards
+- Redesigned hero-section.tsx: cleaner layout with delivery platform links (Jahez, HungerStation, Mrsool, TheChefz), social links as pills, restaurant name over hero image
+- Redesigned category-bar.tsx: inverted active state (dark pill on light bg), "منيو المطعم" label
+- Redesigned product-card.tsx: description always visible (line-clamp-2), calories with flame icon, price as secondary, tags, rounded-2xl cards
+- Redesigned product-grid.tsx: single-column vertical list layout (like reference), cleaner skeleton loading
+- Redesigned product-modal.tsx: cleaner image with overlay close button, prominent variant selector with rounded-xl, allergens section, "none" state
+- Updated floating-contact-bar.tsx: rounded-2xl glass bar with rounded-xl buttons
+- Fixed seed data image URLs for better reliability
+- Added allowedDevOrigins in next.config.ts
+- Lint: 0 errors, 3 warnings (unchanged)
+
+Stage Summary:
+- Client menu now matches YallaQR Codes platform style
+- Food-info-first approach: description + calories visible on every card
+- Delivery platform links section in hero
+- Allergen information prominently displayed
+- Clean, premium, mobile-first design
+- RTL Arabic by default with English toggle
