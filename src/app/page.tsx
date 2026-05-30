@@ -10,7 +10,7 @@ import { FloatingContactBar } from '@/features/menu/components/floating-contact-
 import { Footer } from '@/features/menu/components/footer';
 import { useAppStore } from '@/store/app-store';
 import { useState, useSyncExternalStore } from 'react';
-import { Moon, Sun, Languages, Shield } from 'lucide-react';
+import { Moon, Sun, Languages } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import type { Product } from '@/types';
 
@@ -56,16 +56,6 @@ function TopBar() {
         <Languages className="size-3.5" />
         <span>{isRTL ? 'EN' : 'عربي'}</span>
       </button>
-
-      {/* Admin link - subtle, non-intrusive */}
-      <a
-        href="/admin"
-        className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-secondary transition-colors"
-        aria-label="Admin Dashboard"
-        title="Admin"
-      >
-        <Shield className="size-3.5 text-muted-foreground" />
-      </a>
     </div>
   );
 }
