@@ -55,81 +55,78 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
       onClick={() => onClick(product)}
       className="menu-card w-full text-start bg-card border border-border/40 rounded-2xl overflow-hidden cursor-pointer group shadow-sm"
     >
-      {/* Image on top */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-secondary/60">
-        {imageUrl && !imgError ? (
-          <Image
-            src={imageUrl}
-            alt={name}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-            sizes="(max-width: 640px) 50vw, 280px"
-            onError={() => setImgError(true)}
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/80">
-            <UtensilsCrossed className="size-8 text-muted-foreground/20" />
-          </div>
-        )}
-        {isPopular && (
-          <div className="absolute top-2 start-2">
-            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#3e2723] text-[#d4af37] shadow-md">
-              <Star className="size-3.5" />
-            </span>
-          </div>
-        )}
-        {isChefPick && (
-          <div className="absolute top-2 end-2">
-            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[#d4af37] text-white shadow-md">
-              <Star className="size-3.5" />
-            </span>
-          </div>
-        )}
-        {/* Price overlay on image */}
-        {minPrice > 0 && (
-          <div className="absolute bottom-2 end-2">
-            <span className="text-xs font-bold text-white bg-[#3e2723]/85 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-md">
-              {priceText}
-            </span>
-          </div>
-        )}
-      </div>
+      <div className="flex flex-col items-center p-4 gap-3">
+        {/* Circle image */}
+        <div className="relative w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full overflow-hidden border-2 border-[#d4af37]/20 shadow-sm group-hover:border-[#d4af37]/40 transition-all">
+          {imageUrl && !imgError ? (
+            <Image
+              src={imageUrl}
+              alt={name}
+              fill
+              className="object-cover group-hover:scale-110 transition-transform duration-300"
+              sizes="80px"
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary to-secondary/80">
+              <UtensilsCrossed className="size-7 text-muted-foreground/20" />
+            </div>
+          )}
+          {isPopular && (
+            <div className="absolute top-0.5 start-0.5">
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#3e2723] text-[#d4af37] shadow-sm">
+                <Star className="size-2.5" />
+              </span>
+            </div>
+          )}
+          {isChefPick && (
+            <div className="absolute top-0.5 end-0.5">
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#d4af37] text-white shadow-sm">
+                <Star className="size-2.5" />
+              </span>
+            </div>
+          )}
+        </div>
 
-      {/* Info below image */}
-      <div className="p-3 space-y-1.5">
-        <h3 className="font-bold text-sm text-foreground leading-tight line-clamp-1">
-          {name}
-        </h3>
+        {/* Info */}
+        <div className="w-full space-y-1 text-center">
+          <h3 className="font-bold text-sm text-foreground leading-tight line-clamp-1">
+            {name}
+          </h3>
 
-        {description && (
-          <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2">
-            {description}
-          </p>
-        )}
+          {description && (
+            <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2">
+              {description}
+            </p>
+          )}
 
-        {tags.length > 0 && (
-          <div className="flex gap-1 flex-wrap pt-0.5">
-            {tags.slice(0, 2).map((tag) => (
-              <Badge
-                key={tag}
-                variant="secondary"
-                className="text-[9px] px-1.5 py-0 font-normal rounded-full"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        )}
+          {tags.length > 0 && (
+            <div className="flex gap-1 justify-center flex-wrap pt-0.5">
+              {tags.slice(0, 2).map((tag) => (
+                <Badge
+                  key={tag}
+                  variant="secondary"
+                  className="text-[9px] px-1.5 py-0 font-normal rounded-full"
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          )}
 
-        <div className="flex items-center gap-1.5 text-[10px] text-muted-foreground pt-0.5">
-          <Flame className="size-3 text-[#d4af37]" />
-          <span>
-            {calories > 0 ? (
-              `${calories} ${language === 'ar' ? 'سعرة' : 'cal'}`
-            ) : (
-              '---'
+          <div className="flex items-center justify-center gap-3 pt-1">
+            {minPrice > 0 && (
+              <span className="text-xs font-bold text-[#3e2723] dark:text-[#d4af37]">
+                {priceText}
+              </span>
             )}
-          </span>
+            <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+              <Flame className="size-3 text-[#d4af37]" />
+              <span>
+                {calories > 0 ? `${calories} ${language === 'ar' ? 'سعرة' : 'cal'}` : '---'}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </motion.button>

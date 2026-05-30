@@ -7,6 +7,8 @@ import { NavigationTabs } from '@/features/menu/components/navigation-tabs';
 import { CategoryBar } from '@/features/menu/components/category-bar';
 import { ProductGrid } from '@/features/menu/components/product-grid';
 import { ProductModal } from '@/features/menu/components/product-modal';
+import { AboutSection } from '@/features/menu/components/about-section';
+import { ServicesSection } from '@/features/menu/components/services-section';
 import { FloatingContactBar } from '@/features/menu/components/floating-contact-bar';
 import { Footer } from '@/features/menu/components/footer';
 import { useState, useSyncExternalStore } from 'react';
@@ -28,9 +30,17 @@ const queryClient = new QueryClient({
 });
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState('menu');
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const mounted = useIsMounted();
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    if (tab !== 'menu') {
+      setActiveCategoryId(null);
+    }
+  };
 
   if (!mounted) {
     return (
@@ -48,21 +58,28 @@ export default function Home() {
           <HeroSection />
 
           {/* Sticky Navigation Tabs */}
-          <NavigationTabs />
+          <NavigationTabs activeTab={activeTab} onTabChange={handleTabChange} />
 
-          {/* Main Content */}
+          {/* Main Content - switches based on active tab */}
           <main className="flex-1">
-            {/* Category Filter Bar */}
-            <CategoryBar
-              activeCategoryId={activeCategoryId}
-              onSelectCategory={setActiveCategoryId}
-            />
-
-            {/* Product List */}
-            <ProductGrid
-              categoryId={activeCategoryId}
-              onProductClick={setSelectedProduct}
-            />
+            {activeTab === 'menu' && (
+              <>
+                <CategoryBar
+                  activeCategoryId={activeCategoryId}
+                  onSelectCategory={setActiveCategoryId}
+                />
+                <ProductGrid
+                  categoryId={activeCategoryId}
+                  onProductClick={setSelectedProduct}
+                />
+              </>
+            )}
+            {activeTab === 'about' && (
+              <AboutSection />
+            )}
+            {activeTab === 'services' && (
+              <ServicesSection />
+            )}
           </main>
 
           {/* Footer */}

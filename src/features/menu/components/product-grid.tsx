@@ -40,18 +40,17 @@ export function ProductGrid({ categoryId, onProductClick }: ProductGridProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="grid grid-cols-2 gap-3"
+            className="grid grid-cols-3 gap-3"
           >
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="bg-card border border-border/40 rounded-2xl overflow-hidden"
+                className="bg-card border border-border/40 rounded-2xl p-4 flex flex-col items-center gap-3"
               >
-                <Skeleton className="w-full aspect-[4/3]" />
-                <div className="p-3 space-y-2">
-                  <Skeleton className="h-4 w-3/4" />
+                <Skeleton className="w-[72px] h-[72px] rounded-full" />
+                <div className="w-full space-y-2 text-center">
+                  <Skeleton className="h-4 w-3/4 mx-auto" />
                   <Skeleton className="h-3 w-full" />
-                  <Skeleton className="h-3 w-1/2" />
                 </div>
               </div>
             ))}
@@ -81,7 +80,7 @@ export function ProductGrid({ categoryId, onProductClick }: ProductGridProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3"
+            className="grid grid-cols-3 gap-3"
           >
             {products.map((product, index) => (
               <motion.div

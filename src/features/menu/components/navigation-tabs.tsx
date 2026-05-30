@@ -12,9 +12,13 @@ const tabs = [
   { key: 'services', labelAr: 'الخدمات', labelEn: 'Services', icon: Sparkles },
 ];
 
-export function NavigationTabs() {
+interface NavigationTabsProps {
+  activeTab: string;
+  onTabChange: (tab: string) => void;
+}
+
+export function NavigationTabs({ activeTab, onTabChange }: NavigationTabsProps) {
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState('menu');
 
   return (
     <div className="bg-[#3e2723] sticky top-0 z-20 shadow-md shadow-[#3e2723]/20">
@@ -27,7 +31,7 @@ export function NavigationTabs() {
             return (
               <button
                 key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
+                onClick={() => onTabChange(tab.key)}
                 className={cn(
                   'relative flex items-center gap-2 px-5 py-3.5 text-sm font-medium transition-all duration-200',
                   isActive
