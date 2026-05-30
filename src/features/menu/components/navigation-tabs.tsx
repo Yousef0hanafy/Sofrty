@@ -21,7 +21,7 @@ export function NavigationTabs({ activeTab, onTabChange }: NavigationTabsProps) 
   const { language } = useLanguage();
 
   return (
-    <div className="bg-[#3e2723] sticky top-0 z-20 shadow-md shadow-[#3e2723]/20">
+    <div className="bg-white sticky top-0 z-20 shadow-sm border-b border-[#e8dcc8]/60">
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex items-center justify-center">
           {tabs.map((tab) => {
@@ -35,8 +35,8 @@ export function NavigationTabs({ activeTab, onTabChange }: NavigationTabsProps) 
                 className={cn(
                   'relative flex items-center gap-2 px-5 py-3.5 text-sm font-medium transition-all duration-200',
                   isActive
-                    ? 'text-[#d4af37]'
-                    : 'text-white/50 hover:text-white/80'
+                    ? 'text-[#3e2723]'
+                    : 'text-[#5d4037]/50 hover:text-[#5d4037]/80'
                 )}
               >
                 <Icon className="size-3.5" />

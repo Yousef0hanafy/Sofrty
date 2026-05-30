@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "arabian food",
   ],
   icons: {
-    icon: "/madaq-logo.png",
+    icon: "/favicon.png",
   },
 };
 

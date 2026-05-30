@@ -23,7 +23,7 @@ export function HeroSection() {
   return (
     <section className="relative w-full">
       {/* Hero image container */}
-      <div className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] overflow-hidden">
+      <div className="relative w-full h-[280px] sm:h-[340px] md:h-[400px] overflow-hidden bg-gradient-to-b from-[#f5efe6] to-[#e8dcc8]">
         {heroImage ? (
           <Image
             src={heroImage}
@@ -33,28 +33,28 @@ export function HeroSection() {
             className="object-cover object-center"
             sizes="100vw"
           />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-b from-[#3e2723] to-[#2c1b10]" />
-        )}
+        ) : null}
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/50" />
+        {/* Light overlay when no hero image */}
+        {!heroImage && (
+          <div className="absolute inset-0 bg-gradient-to-b from-[#f5efe6]/90 via-[#ede4d3]/80 to-[#e8dcc8]/90" />
+        )}
 
         {/* Centered content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4">
-          {/* Logo — fits inside circle */}
+          {/* Logo — transparent background logo in elegant circle */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] rounded-full bg-white/95 flex items-center justify-center overflow-hidden shadow-xl shadow-black/20 border-2 border-[#d4af37]/50">
+            <div className="w-[110px] h-[110px] sm:w-[130px] sm:h-[130px] rounded-full flex items-center justify-center overflow-hidden shadow-lg shadow-black/10 border-2 border-[#d4af37]/40 bg-white/50 backdrop-blur-sm">
               <Image
                 src="/madaq-logo.png"
                 alt="Madaq"
                 fill
                 priority
-                className="object-contain p-4"
+                className="object-contain p-5"
                 sizes="130px"
               />
             </div>
@@ -65,7 +65,7 @@ export function HeroSection() {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] tracking-wide"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3e2723] drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] tracking-wide"
           >
             {name || 'Madaq'}
           </motion.h1>
@@ -83,7 +83,7 @@ export function HeroSection() {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.55 }}
-            className="text-white/80 text-xs sm:text-sm font-light tracking-wider"
+            className="text-[#5d4037]/70 text-xs sm:text-sm font-light tracking-wider"
           >
             {language === 'ar' ? 'تجربة طعام استثنائية' : 'An Exceptional Dining Experience'}
           </motion.p>
@@ -100,9 +100,9 @@ export function HeroSection() {
                 href={restaurant.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 hover:bg-[#d4af37]/25 hover:border-[#d4af37]/50 transition-all duration-200"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/50 backdrop-blur-sm border border-[#3e2723]/15 hover:bg-[#d4af37]/15 hover:border-[#d4af37]/40 transition-all duration-200"
               >
-                <Instagram className="size-4 text-white" />
+                <Instagram className="size-4 text-[#3e2723]" />
               </a>
             )}
             {restaurant?.whatsappNumber && (
@@ -110,9 +110,9 @@ export function HeroSection() {
                 href={`https://wa.me/${restaurant.whatsappNumber.replace(/[^0-9]/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 hover:bg-[#d4af37]/25 hover:border-[#d4af37]/50 transition-all duration-200"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/50 backdrop-blur-sm border border-[#3e2723]/15 hover:bg-[#d4af37]/15 hover:border-[#d4af37]/40 transition-all duration-200"
               >
-                <Phone className="size-4 text-white" />
+                <Phone className="size-4 text-[#3e2723]" />
               </a>
             )}
             {restaurant?.mapsUrl && (
@@ -120,16 +120,16 @@ export function HeroSection() {
                 href={restaurant.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 hover:bg-[#d4af37]/25 hover:border-[#d4af37]/50 transition-all duration-200"
+                className="flex items-center justify-center w-9 h-9 rounded-full bg-white/50 backdrop-blur-sm border border-[#3e2723]/15 hover:bg-[#d4af37]/15 hover:border-[#d4af37]/40 transition-all duration-200"
               >
-                <MapPin className="size-4 text-white" />
+                <MapPin className="size-4 text-[#3e2723]" />
               </a>
             )}
           </motion.div>
         </div>
 
         {/* Bottom gradient fade into page background */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#faf8f5] to-transparent" />
       </div>
     </section>
   );

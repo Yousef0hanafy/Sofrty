@@ -44,7 +44,7 @@ export default function Home() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen bg-[#faf8f5] flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-[#d4af37] border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <div className="min-h-screen bg-background flex flex-col">
+        <div className="min-h-screen bg-[#faf8f5] flex flex-col">
           {/* Hero Section */}
           <HeroSection />
 

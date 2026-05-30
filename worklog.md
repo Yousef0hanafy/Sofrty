@@ -85,3 +85,29 @@ Stage Summary:
 - Circular category icons with gold border selection effect
 - No sticky floating buttons - clean interface
 - Admin only accessible via direct /admin URL
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: Replace logo with user's transparent-background image, set as favicon, switch to light theme
+
+Work Log:
+- Converted uploaded AVIF image to PNG using sharp (1227x724, with alpha/transparency)
+- Saved as `/public/madaq-logo.png` (replaces previous logo)
+- Created 32x32 favicon at `/public/favicon.png` from the new logo
+- Updated `layout.tsx`: favicon icon changed to `/favicon.png`
+- Updated `globals.css`: complete light theme - background #faf8f5, foreground #3e2723, cards white, borders #e0d5c0, muted #f0ead8
+- Updated `hero-section.tsx`: light gradient background (from #f5efe6 to #e8dcc8), transparent logo in semi-transparent circle (bg-white/50), brown text, brown social icons
+- Updated `navigation-tabs.tsx`: white background, light border, brown text, gold active underline
+- Updated `page.tsx`: light background class bg-[#faf8f5]
+- Footer kept dark brown as intentional contrast element
+- FloatingContactBar already removed from page.tsx (from previous session)
+- Dev server running with keepalive loop, all routes compiling and serving correctly (GET / 200, all APIs 200)
+
+Stage Summary:
+- New transparent-background logo uploaded and set as main logo
+- Favicon set to the new logo image
+- Entire theme switched from dark to light (warm cream/beige tones)
+- Hero section with light gradient, semi-transparent circle around logo
+- Navigation bar white with subtle border
+- Consistent brown (#3e2723) + gold (#d4af37) accent scheme on light background
