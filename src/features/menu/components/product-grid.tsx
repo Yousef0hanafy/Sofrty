@@ -40,22 +40,18 @@ export function ProductGrid({ categoryId, onProductClick }: ProductGridProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="space-y-3"
+            className="grid grid-cols-2 gap-3"
           >
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="bg-card border border-border/40 rounded-2xl p-3.5 flex gap-3.5 items-center"
+                className="bg-card border border-border/40 rounded-2xl overflow-hidden"
               >
-                <Skeleton className="shrink-0 w-[90px] h-[90px] rounded-xl" />
-                <div className="flex-1 space-y-2.5">
+                <Skeleton className="w-full aspect-[4/3]" />
+                <div className="p-3 space-y-2">
                   <Skeleton className="h-4 w-3/4" />
                   <Skeleton className="h-3 w-full" />
-                  <Skeleton className="h-3 w-2/3" />
-                  <div className="flex justify-between pt-1.5 border-t border-border/20">
-                    <Skeleton className="h-3 w-24" />
-                    <Skeleton className="h-5 w-16 rounded-full" />
-                  </div>
+                  <Skeleton className="h-3 w-1/2" />
                 </div>
               </div>
             ))}
@@ -85,14 +81,14 @@ export function ProductGrid({ categoryId, onProductClick }: ProductGridProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="space-y-3"
+            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3"
           >
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.15, delay: Math.min(index * 0.04, 0.4) }}
+                transition={{ duration: 0.2, delay: Math.min(index * 0.05, 0.5) }}
               >
                 <ProductCard product={product} onClick={onProductClick} />
               </motion.div>
