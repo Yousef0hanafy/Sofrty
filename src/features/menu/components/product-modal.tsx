@@ -13,7 +13,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Separator } from '@/components/ui/separator';
-import { Flame, AlertTriangle, X, Info } from 'lucide-react';
+import { Flame, X, Clock, UtensilsCrossed, Star } from 'lucide-react';
 import { useLanguage } from './language-context';
 import type { Product } from '@/types';
 
@@ -55,7 +55,16 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
     ? product.tags.split(',').map((t) => t.trim()).filter(Boolean)
     : [];
 
-  const allergens = product.allergens
+  // Check for popular/chef's pick tag
+  const isPopular = tags.some(t => 
+    t.includes('مبيعا') || t.includes('بيع') || t.includes('popular') || t.toLowerCase().includes('best')
+  );
+  const isChefsPick = tags.some(t =>
+    t.includes('الشيف') || t.includes('chef') || t.includes('مقترح') || t.includes('مميز')
+  );
+
+  // Preparation info from allergens field (repurposed)
+  const preparationInfo = product.allergens
     ? product.allergens.split(',').map((a) => a.trim()).filter(Boolean)
     : [];
 
@@ -74,7 +83,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-              <Flame className="size-10 opacity-20" />
+              <UtensilsCrossed className="size-10 opacity-20" />
             </div>
           )}
           {/* Close button overlay */}
@@ -84,6 +93,23 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
           >
             <X className="size-4" />
           </button>
+          {/* Badges on image */}
+          {isPopular && (
+            <div className="absolute top-3 start-3 flex gap-1.5">
+              <Badge className="bg-primary text-primary-foreground text-[10px] px-2 py-0.5 gap-1">
+                <Star className="size-3" />
+                {language === 'ar' ? 'الأكثر طلباً' : 'Most Popular'}
+              </Badge>
+            </div>
+          )}
+          {isChefsPick && !isPopular && (
+            <div className="absolute top-3 start-3 flex gap-1.5">
+              <Badge className="bg-amber-600 text-white text-[10px] px-2 py-0.5 gap-1">
+                <UtensilsCrossed className="size-3" />
+                {language === 'ar' ? 'مقترح الشيف' : "Chef's Pick"}
+              </Badge>
+            </div>
+          )}
         </div>
 
         <div className="p-5 space-y-4">
@@ -99,7 +125,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
             )}
           </DialogHeader>
 
-          {/* Tags */}
+          {/* Tags (excluding special tags shown on image) */}
           {tags.length > 0 && (
             <div className="flex gap-1.5 flex-wrap">
               {tags.map((tag) => (
@@ -165,31 +191,24 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
             </AnimatePresence>
           </div>
 
-          {/* Allergens warning */}
-          {allergens.length > 0 && (
+          {/* Chef's Note / Preparation Info (replaces allergens) */}
+          {preparationInfo.length > 0 && (
             <>
               <Separator className="opacity-50" />
-              <div className="flex items-start gap-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/20 p-3.5">
-                <AlertTriangle className="size-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-                <div className="text-xs space-y-1">
-                  <p className="font-semibold text-amber-700 dark:text-amber-300">
-                    {language === 'ar' ? 'مسببات حساسية' : 'Allergens'}
-                  </p>
-                  <p className="text-amber-600/80 dark:text-amber-400/80 leading-relaxed">
-                    {allergens.join(' • ')}
-                  </p>
+              <div className="flex items-start gap-2.5 rounded-xl bg-primary/5 p-3.5">
+                <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-primary/10 shrink-0 mt-0.5">
+                  <Clock className="size-3.5 text-primary" />
                 </div>
-              </div>
-            </>
-          )}
-
-          {/* No allergens */}
-          {allergens.length === 0 && product.allergens && (
-            <>
-              <Separator className="opacity-50" />
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Info className="size-3.5" />
-                <span>{language === 'ar' ? 'مسببات حساسية: ( لا يوجد )' : 'Allergens: ( None )'}</span>
+                <div className="text-xs space-y-1">
+                  <p className="font-semibold text-foreground">
+                    {language === 'ar' ? 'تفاصيل الطبخ' : 'Preparation Details'}
+                  </p>
+                  <div className="text-muted-foreground leading-relaxed space-y-0.5">
+                    {preparationInfo.map((info, idx) => (
+                      <p key={idx}>{info}</p>
+                    ))}
+                  </div>
+                </div>
               </div>
             </>
           )}

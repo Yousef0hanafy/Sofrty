@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
         hostname: "api.qrserver.com",
       },
     ],
+    unoptimized: true,
   },
   allowedDevOrigins: [
     "*.space-z.ai",

@@ -28,7 +28,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Fresh charcoal-grilled chicken served with basmati rice, grilled potatoes, and fresh salads",
         imageUrl: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=600&h=400&fit=crop",
         tags: "مقترح الشيف,الأكثر مبيعاً",
-        allergens: "لا يحتوي على منتجات الألبان",
+        allergens: "مشوي على الفحم الحي لضمان أعلى جودة ونكهة",
         variants: [
           { label: "ربع دجاج", price: 25, calories: 450 },
           { label: "نصف دجاج", price: 38, calories: 680 },
@@ -42,7 +42,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Fresh charcoal-grilled beef with basmati rice, Arabic bread, and assorted salads",
         imageUrl: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&h=400&fit=crop",
         tags: "مميز,مقترح الشيف",
-        allergens: "لا يحتوي على منتجات الألبان",
+        allergens: "مقطع من أجود أنواع اللحم البقري المعتق",
         variants: [
           { label: "100 غرام", price: 35, calories: 350 },
           { label: "150 غرام", price: 48, calories: 520 },
@@ -57,7 +57,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Minced meat kebab grilled on skewers with tomatoes, peppers, onions, and special sauce",
         imageUrl: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600&h=400&fit=crop",
         tags: "شائع",
-        allergens: "يحتوي على قمح",
+        allergens: "يُقدم مع صلصة الطحينة والخبز العربي الطازج",
         variants: [
           { label: "3 أسياخ", price: 30, calories: 400 },
           { label: "5 أسياخ", price: 45, calories: 650 },
@@ -71,7 +71,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Fresh lamb ribs slowly grilled over charcoal with special spices and olive ember",
         imageUrl: "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop",
         tags: "فاخر,مميز",
-        allergens: "خالٍ من الغلوتين",
+        allergens: "تُشوى ببطء لمدة 4 ساعات لضمان الطراوة المثالية",
         variants: [
           { label: "250 غرام", price: 55, calories: 580 },
           { label: "350 غرام", price: 72, calories: 810 },
@@ -91,9 +91,9 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Chicken Shawarma",
         descriptionAr: "شاورما دجاج طازجة مع خضار طازجة وصلصة ثوم في خبز صاج طازج",
         descriptionEn: "Fresh chicken shawarma with crisp vegetables and garlic sauce in fresh saj bread",
-        imageUrl: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1561651188-d207bbec4ec3?w=600&h=400&fit=crop",
         tags: "الأكثر مبيعاً,مميز",
-        allergens: "يحتوي على منتجات الألبان والقمح",
+        allergens: "محضر يومياً من الدجاج الطازج والخبز الصاج",
         variants: [
           { label: "صغير", price: 15, calories: 380 },
           { label: "وسط", price: 22, calories: 550 },
@@ -105,9 +105,9 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Beef Shawarma",
         descriptionAr: "شاورما لحم بقري مع خضار طازجة ومخللات وصلصة طحينة في خبز صاج",
         descriptionEn: "Beef shawarma with fresh vegetables, pickles, and tahini sauce in saj bread",
-        imageUrl: "https://images.unsplash.com/photo-1561651188-d207bbec4ec3?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&h=400&fit=crop",
         tags: "شائع",
-        allergens: "يحتوي على السمسم والقمح",
+        allergens: "يُضاف إليه مخللات محضرة في المطبخ",
         variants: [
           { label: "صغير", price: 18, calories: 420 },
           { label: "وسط", price: 25, calories: 600 },
@@ -121,7 +121,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Crispy fresh falafel with vegetable salad, pickles, and tahini in Arabic bread",
         imageUrl: "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=600&h=400&fit=crop",
         tags: "نباتي",
-        allergens: "خالٍ من المنتجات الحيوانية",
+        allergens: "فلافل مقرمشة محضرة من حمص طازج وبهارات خاصة",
         variants: [
           { label: "4 حبات", price: 10, calories: 280 },
           { label: "6 حبات", price: 14, calories: 420 },
@@ -143,7 +143,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Fresh blended chickpeas with extra virgin olive oil, lemon juice, and tahini",
         imageUrl: "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=600&h=400&fit=crop",
         tags: "نباتي,شائع",
-        allergens: "يحتوي على السمسم",
+        allergens: "يُقدم مع زيت الزيتون البكر البارد والبابا غنوج",
         variants: [
           { label: "صغير", price: 8, calories: 180 },
           { label: "وسط", price: 12, calories: 270 },
@@ -157,7 +157,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Grilled eggplant dip with tahini, lemon juice, olive oil, and pomegranate",
         imageUrl: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=400&fit=crop",
         tags: "نباتي,مميز",
-        allergens: "يحتوي على السمسم",
+        allergens: "باذنجان مشوي على الفحم مع رشة رمان طازج",
         variants: [
           { label: "صغير", price: 10, calories: 200 },
           { label: "كبير", price: 15, calories: 310 },
@@ -170,7 +170,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Fresh tabbouleh with finely chopped parsley, fresh bulgur, tomatoes, onions, and lemon juice",
         imageUrl: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop",
         tags: "نباتي,خفيف",
-        allergens: "يحتوي على القمح",
+        allergens: "محضرة من بقدونس طازج مع لمسة من البرغل والليمون",
         variants: [
           { label: "صغير", price: 8, calories: 120 },
           { label: "كبير", price: 12, calories: 180 },
@@ -183,7 +183,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Grape leaves stuffed with rice and spices, cooked in olive oil and lemon juice",
         imageUrl: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop",
         tags: "تقليدي",
-        allergens: "خالٍ من الغلوتين",
+        allergens: "مطبوخ ببطء مع زيت الزيتون والليمون الطازج",
         variants: [
           { label: "6 قطع", price: 12, calories: 200 },
           { label: "10 قطع", price: 18, calories: 330 },
@@ -204,7 +204,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Freshly squeezed orange juice, served cold with no added sugar",
         imageUrl: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&h=400&fit=crop",
         tags: "طازج",
-        allergens: "خالٍ من الحساسية",
+        allergens: "معصور طازجاً عند الطلب من برتقال الموسم",
         variants: [
           { label: "كوب صغير", price: 8, calories: 110 },
           { label: "كوب كبير", price: 12, calories: 170 },
@@ -217,7 +217,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Refreshing mojito with fresh mint, lemon, and soda",
         imageUrl: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=600&h=400&fit=crop",
         tags: "منعش,مميز",
-        allergens: "خالٍ من الحساسية",
+        allergens: "يُقدم مع نعناع طازج وثلج مجروش",
         variants: [
           { label: "كوب", price: 14, calories: 90 },
           { label: "كبير", price: 20, calories: 140 },
@@ -228,9 +228,9 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Arabic Tea",
         descriptionAr: "شاي عربي أصيل مع الهيل والزعفران مقدم مع تمور طازجة",
         descriptionEn: "Authentic Arabic tea with cardamom and saffron, served with fresh dates",
-        imageUrl: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1564890369478-c89ca0d91cbe?w=600&h=400&fit=crop",
         tags: "تقليدي,شائع",
-        allergens: "خالٍ من الحساسية",
+        allergens: "مُعد بالهيل والزعفران الفاخر مع تمور المدينة",
         variants: [
           { label: "كوب", price: 5, calories: 25 },
           { label: "إبريق", price: 12, calories: 75 },
@@ -241,9 +241,9 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Arabic Coffee",
         descriptionAr: "قهوة عربية تقليدية بالهيل والزعفران تقدم مع التمر والهيل",
         descriptionEn: "Traditional Arabic coffee with cardamom and saffron, served with dates",
-        imageUrl: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop",
         tags: "تقليدي",
-        allergens: "خالٍ من الحساسية",
+        allergens: "قهوة عربية بالهيل والزعفران تقدم بالدلة التقليدية",
         variants: [
           { label: "فنجان", price: 5, calories: 15 },
           { label: "دلة", price: 18, calories: 90 },
@@ -264,7 +264,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Soft kunafa with fresh cheese, orange blossom syrup, and pistachios",
         imageUrl: "https://images.unsplash.com/photo-1579888944880-d98341245702?w=600&h=400&fit=crop",
         tags: "مميز,الأكثر مبيعاً",
-        allergens: "يحتوي على منتجات الألبان والقمح والمكسرات",
+        allergens: "تُقدم ساخنة مع شيرة الزهر والفستق الحلبي",
         variants: [
           { label: "صغير", price: 15, calories: 420 },
           { label: "وسط", price: 22, calories: 630 },
@@ -276,9 +276,9 @@ export const seedCategories: SeedCategory[] = [
         nameEn: "Baklava",
         descriptionAr: "بقلاوة محشوة بالمكسرات مع شيرة العسل والزبدة",
         descriptionEn: "Baklava filled with mixed nuts, honey syrup, and butter",
-        imageUrl: "https://images.unsplash.com/photo-1598197068394-7b96e50bb54b?w=600&h=400&fit=crop",
+        imageUrl: "https://images.unsplash.com/photo-1519676867240-f03562e64571?w=600&h=400&fit=crop",
         tags: "تقليدي,فاخر",
-        allergens: "يحتوي على القمح والمكسرات ومنتجات الألبان",
+        allergens: "مصنوعة يدوياً من عجينة فيلو مع مكسرات مشكلة",
         variants: [
           { label: "3 قطع", price: 12, calories: 320 },
           { label: "6 قطع", price: 20, calories: 640 },
@@ -292,7 +292,7 @@ export const seedCategories: SeedCategory[] = [
         descriptionEn: "Traditional Om Ali dessert with cream, mixed nuts, raisins, and cinnamon",
         imageUrl: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=600&h=400&fit=crop",
         tags: "تقليدي",
-        allergens: "يحتوي على منتجات الألبان والقمح والمكسرات",
+        allergens: "تُقدم ساخنة مع القشطة الطازجة والقرفة",
         variants: [
           { label: "صغير", price: 12, calories: 350 },
           { label: "كبير", price: 18, calories: 530 },

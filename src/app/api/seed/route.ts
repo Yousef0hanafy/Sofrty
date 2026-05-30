@@ -2,15 +2,26 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { seedCategories, restaurantDefaults } from "@/data/seed";
 
-export async function POST() {
+export async function POST(request: Request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const force = searchParams.get('force') === 'true';
+
     // Check if data already exists
     const existingCategories = await db.category.count();
-    if (existingCategories > 0) {
+    if (existingCategories > 0 && !force) {
       return NextResponse.json(
-        { success: false, error: "Database already seeded" },
+        { success: false, error: "Database already seeded. Use ?force=true to reseed." },
         { status: 400 }
       );
+    }
+
+    // If force, delete all existing data
+    if (force) {
+      await db.productVariant.deleteMany();
+      await db.product.deleteMany();
+      await db.category.deleteMany();
+      await db.restaurant.deleteMany();
     }
 
     // Create restaurant settings

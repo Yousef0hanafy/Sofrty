@@ -599,10 +599,10 @@ export function ProductsManager() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="p-allergens">{isRTL ? 'الحساسية' : 'Allergens'}</Label>
+                  <Label htmlFor="p-allergens">{isRTL ? 'تفاصيل الطبخ' : 'Prep Details'}</Label>
                   <Input
                     id="p-allergens"
-                    placeholder={isRTL ? 'غلوتين, حليب' : 'gluten, dairy'}
+                    placeholder={isRTL ? 'مشوي على الفحم, يُقدم مع...' : 'grilled on charcoal, served with...'}
                     {...form.register('allergens')}
                   />
                 </div>

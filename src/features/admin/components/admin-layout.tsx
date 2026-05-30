@@ -44,9 +44,14 @@ const navItems: { section: AdminSection; icon: React.ElementType; labelAr: strin
 ]
 
 export function AdminLayout({ activeSection, onSectionChange, children }: AdminLayoutProps) {
-  const { language, setAdmin } = useAppStore()
+  const { language } = useAppStore()
 
   const isRTL = language === 'ar'
+
+  function handleLogout() {
+    sessionStorage.removeItem('madaq-admin-auth')
+    window.location.href = '/'
+  }
 
   return (
     <SidebarProvider>
@@ -92,10 +97,10 @@ export function AdminLayout({ activeSection, onSectionChange, children }: AdminL
             <Button
               variant="ghost"
               className="w-full justify-start gap-2 text-muted-foreground hover:text-destructive"
-              onClick={() => setAdmin(false)}
+              onClick={handleLogout}
             >
               <LogOut className="h-4 w-4" />
-              <span>{isRTL ? 'خروج من الإدارة' : 'Exit Admin'}</span>
+              <span>{isRTL ? 'تسجيل الخروج' : 'Sign Out'}</span>
             </Button>
           </SidebarFooter>
         </Sidebar>

@@ -7,11 +7,10 @@ import { CategoryBar } from '@/features/menu/components/category-bar';
 import { ProductGrid } from '@/features/menu/components/product-grid';
 import { ProductModal } from '@/features/menu/components/product-modal';
 import { FloatingContactBar } from '@/features/menu/components/floating-contact-bar';
-import { AdminPage } from '@/features/admin/components/admin-page';
+import { Footer } from '@/features/menu/components/footer';
 import { useAppStore } from '@/store/app-store';
 import { useState, useSyncExternalStore } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Shield, Moon, Sun, Languages } from 'lucide-react';
+import { Moon, Sun, Languages, Shield } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import type { Product } from '@/types';
 
@@ -57,60 +56,23 @@ function TopBar() {
         <Languages className="size-3.5" />
         <span>{isRTL ? 'EN' : 'عربي'}</span>
       </button>
+
+      {/* Admin link - subtle, non-intrusive */}
+      <a
+        href="/admin"
+        className="flex items-center justify-center w-8 h-8 rounded-full hover:bg-secondary transition-colors"
+        aria-label="Admin Dashboard"
+        title="Admin"
+      >
+        <Shield className="size-3.5 text-muted-foreground" />
+      </a>
     </div>
   );
 }
 
-function AdminFab() {
-  const { isAdmin, toggleAdmin } = useAppStore();
-
-  return (
-    <motion.button
-      whileTap={{ scale: 0.95 }}
-      onClick={toggleAdmin}
-      className="fixed bottom-20 right-4 z-40 flex items-center gap-2 px-3 py-2 rounded-full bg-primary/90 text-primary-foreground shadow-lg hover:bg-primary transition-colors text-xs font-medium"
-      aria-label="Admin Dashboard"
-    >
-      <Shield className="size-3.5" />
-      <span>{isAdmin ? 'القائمة' : 'الإدارة'}</span>
-    </motion.button>
-  );
-}
-
-function ClientMenuView() {
+export default function Home() {
   const [activeCategoryId, setActiveCategoryId] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
-  return (
-    <>
-      <TopBar />
-      <div className="min-h-screen bg-background">
-        <HeroSection />
-        <CategoryBar
-          activeCategoryId={activeCategoryId}
-          onSelectCategory={setActiveCategoryId}
-        />
-        <ProductGrid
-          categoryId={activeCategoryId}
-          onProductClick={setSelectedProduct}
-        />
-        <div className="h-20" />
-      </div>
-      <FloatingContactBar />
-      <ProductModal
-        product={selectedProduct}
-        open={!!selectedProduct}
-        onOpenChange={(open) => {
-          if (!open) setSelectedProduct(null);
-        }}
-      />
-      <AdminFab />
-    </>
-  );
-}
-
-export default function Home() {
-  const { isAdmin } = useAppStore();
   const mounted = useIsMounted();
 
   if (!mounted) {
@@ -124,29 +86,28 @@ export default function Home() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <AnimatePresence mode="wait">
-          {isAdmin ? (
-            <motion.div
-              key="admin"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <AdminPage />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="menu"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <ClientMenuView />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <TopBar />
+        <div className="min-h-screen bg-background flex flex-col">
+          <HeroSection />
+          <CategoryBar
+            activeCategoryId={activeCategoryId}
+            onSelectCategory={setActiveCategoryId}
+          />
+          <ProductGrid
+            categoryId={activeCategoryId}
+            onProductClick={setSelectedProduct}
+          />
+          <div className="flex-1" />
+          <Footer />
+        </div>
+        <FloatingContactBar />
+        <ProductModal
+          product={selectedProduct}
+          open={!!selectedProduct}
+          onOpenChange={(open) => {
+            if (!open) setSelectedProduct(null);
+          }}
+        />
       </LanguageProvider>
     </QueryClientProvider>
   );
