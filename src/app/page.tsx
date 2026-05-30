@@ -44,20 +44,35 @@ export default function Home() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <div className="min-h-screen bg-background flex flex-col">
+          {/* Hero Section */}
           <HeroSection />
+
+          {/* Sticky Navigation Tabs */}
           <NavigationTabs />
-          <CategoryBar
-            activeCategoryId={activeCategoryId}
-            onSelectCategory={setActiveCategoryId}
-          />
-          <ProductGrid
-            categoryId={activeCategoryId}
-            onProductClick={setSelectedProduct}
-          />
-          <div className="flex-1" />
+
+          {/* Main Content */}
+          <main className="flex-1">
+            {/* Category Filter Bar */}
+            <CategoryBar
+              activeCategoryId={activeCategoryId}
+              onSelectCategory={setActiveCategoryId}
+            />
+
+            {/* Product List */}
+            <ProductGrid
+              categoryId={activeCategoryId}
+              onProductClick={setSelectedProduct}
+            />
+          </main>
+
+          {/* Footer */}
           <Footer />
         </div>
+
+        {/* Floating Contact Bar */}
         <FloatingContactBar />
+
+        {/* Product Detail Modal */}
         <ProductModal
           product={selectedProduct}
           open={!!selectedProduct}

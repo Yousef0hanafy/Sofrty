@@ -185,14 +185,14 @@
 
 /* Optimized card hover */
 .menu-card {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .menu-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px -5px rgba(62, 39, 35, 0.15);
+  box-shadow: 0 8px 30px -5px rgba(62, 39, 35, 0.12), 0 0 0 1px rgba(212, 175, 55, 0.08);
 }
 .dark .menu-card:hover {
-  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.1);
 }
 
 /* Circular category hover */
@@ -201,8 +201,9 @@
 }
 .category-circle:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 0 3px var(--madaq-gold), 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 0 3px var(--madaq-gold), 0 4px 20px rgba(212, 175, 55, 0.25);
 }
 .category-circle.active {
-  box-shadow: 0 0 0 3px var(--madaq-gold), 0 0 15px rgba(212, 175, 55, 0.4);
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px var(--madaq-gold), 0 0 20px rgba(212, 175, 55, 0.35);
 }
