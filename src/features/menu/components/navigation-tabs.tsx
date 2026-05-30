@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useLanguage } from './language-context';
-import { useAppStore } from '@/store/app-store';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
@@ -17,7 +16,7 @@ export function NavigationTabs() {
   const [activeTab, setActiveTab] = useState('menu');
 
   return (
-    <div className="bg-[#0a4d3a] dark:bg-[#0a4d3a]">
+    <div className="bg-[#1a1a1a] dark:bg-[#111]">
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex items-center justify-center gap-1">
           {tabs.map((tab) => {

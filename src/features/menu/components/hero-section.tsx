@@ -40,24 +40,24 @@ export function HeroSection() {
             sizes="100vw"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a4d3a] to-[#073d2e]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a]" />
         )}
 
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50" />
 
-        {/* Centered content - logo, name, social links */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-          {/* Circular Logo */}
+        {/* Centered content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-4">
+          {/* Logo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="rounded-full p-[6px] bg-gradient-to-br from-[#d4af37] via-[#e8cc6e] to-[#d4af37] shadow-2xl">
-              <div className="rounded-full overflow-hidden bg-[#0a4d3a]">
-                <MadaqLogo size={110} className="sm:w-[130px] sm:h-[130px]" />
+            <div className="rounded-full p-[5px] bg-gradient-to-br from-[#d4af37] via-[#e8cc6e] to-[#d4af37] shadow-2xl">
+              <div className="rounded-full overflow-hidden bg-black">
+                <MadaqLogo size={120} className="sm:!w-[140px] sm:!h-[140px]" />
               </div>
             </div>
           </motion.div>
@@ -80,7 +80,7 @@ export function HeroSection() {
             className="w-16 h-[1px] bg-[#d4af37]/70"
           />
 
-          {/* Social media links */}
+          {/* Social links */}
           <motion.div
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -120,8 +120,8 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Bottom gradient fade into content */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#f5f0e1] to-transparent dark:from-[#0d1117]" />
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#faf8f5] to-transparent dark:from-[#0f0f0f]" />
       </div>
     </motion.section>
   );

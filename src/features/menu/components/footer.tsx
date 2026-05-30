@@ -18,7 +18,7 @@ export function Footer() {
   const name = language === 'ar' ? restaurant?.nameAr : restaurant?.nameEn;
 
   return (
-    <footer className="bg-[#0a4d3a] dark:bg-[#073d2e]">
+    <footer className="bg-[#1a1a1a] dark:bg-[#111]">
       <div className="max-w-5xl mx-auto px-5 py-5">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">

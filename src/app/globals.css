@@ -3,78 +3,79 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Madaq Restaurant Theme - Dark Green + Gold */
+/* Madaq Restaurant Theme - Black + Gold + Brown */
 :root {
   --radius: 0.75rem;
-  --madaq-dark-green: #0a4d3a;
-  --madaq-green-light: #0f6b4f;
   --madaq-gold: #d4af37;
   --madaq-gold-light: #e8cc6e;
-  --madaq-cream: #f5f0e1;
+  --madaq-brown: #5d4037;
+  --madaq-brown-light: #795548;
+  --madaq-dark: #1a1a1a;
+  --madaq-cream: #faf8f5;
   --background: var(--madaq-cream);
   --foreground: #1a1a1a;
   --card: #ffffff;
   --card-foreground: #1a1a1a;
   --popover: #ffffff;
   --popover-foreground: #1a1a1a;
-  --primary: var(--madaq-dark-green);
-  --primary-foreground: var(--madaq-cream);
-  --secondary: #e8e3d4;
-  --secondary-foreground: #2d2d2d;
-  --muted: #e8e3d4;
-  --muted-foreground: #7a7a6e;
+  --primary: var(--madaq-gold);
+  --primary-foreground: #1a1a1a;
+  --secondary: #f0ebe3;
+  --secondary-foreground: #3e2c25;
+  --muted: #e8e0d8;
+  --muted-foreground: #8b7d74;
   --accent: var(--madaq-gold);
   --accent-foreground: #1a1a1a;
   --destructive: #dc2626;
-  --border: #d4cfbf;
-  --input: #d4cfbf;
-  --ring: var(--madaq-dark-green);
-  --chart-1: var(--madaq-dark-green);
-  --chart-2: var(--madaq-gold);
-  --chart-3: #2d8b6a;
-  --chart-4: #8b6c2d;
-  --chart-5: #1a6b4a;
-  --sidebar: #f0ebe0;
+  --border: #ddd5cb;
+  --input: #ddd5cb;
+  --ring: var(--madaq-gold);
+  --chart-1: var(--madaq-gold);
+  --chart-2: var(--madaq-brown);
+  --chart-3: #8d6e63;
+  --chart-4: #a1887f;
+  --chart-5: #6d4c41;
+  --sidebar: #f5f0e8;
   --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: var(--madaq-dark-green);
-  --sidebar-primary-foreground: var(--madaq-cream);
+  --sidebar-primary: var(--madaq-gold);
+  --sidebar-primary-foreground: #1a1a1a;
   --sidebar-accent: var(--madaq-gold);
   --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #d4cfbf;
-  --sidebar-ring: var(--madaq-dark-green);
+  --sidebar-border: #ddd5cb;
+  --sidebar-ring: var(--madaq-gold);
 }
 
 .dark {
-  --background: #0d1117;
-  --foreground: #e6e1d3;
-  --card: #161b22;
-  --card-foreground: #e6e1d3;
-  --popover: #161b22;
-  --popover-foreground: #e6e1d3;
-  --primary: #0f6b4f;
-  --primary-foreground: #f5f0e1;
-  --secondary: #21262d;
-  --secondary-foreground: #e6e1d3;
-  --muted: #21262d;
-  --muted-foreground: #8b8579;
+  --background: #0f0f0f;
+  --foreground: #e8e0d8;
+  --card: #1a1a1a;
+  --card-foreground: #e8e0d8;
+  --popover: #1a1a1a;
+  --popover-foreground: #e8e0d8;
+  --primary: var(--madaq-gold);
+  --primary-foreground: #0f0f0f;
+  --secondary: #252525;
+  --secondary-foreground: #d4c8bb;
+  --muted: #252525;
+  --muted-foreground: #8b7d74;
   --accent: var(--madaq-gold);
-  --accent-foreground: #1a1a1a;
+  --accent-foreground: #0f0f0f;
   --destructive: #f87171;
-  --border: #30363d;
-  --input: #30363d;
+  --border: #333;
+  --input: #333;
   --ring: var(--madaq-gold);
-  --chart-1: #0f6b4f;
-  --chart-2: var(--madaq-gold);
-  --chart-3: #2d8b6a;
-  --chart-4: #c9a227;
-  --chart-5: #1a8b5a;
-  --sidebar: #0d1117;
-  --sidebar-foreground: #e6e1d3;
+  --chart-1: var(--madaq-gold);
+  --chart-2: #8d6e63;
+  --chart-3: #a1887f;
+  --chart-4: var(--madaq-brown);
+  --chart-5: #6d4c41;
+  --sidebar: #0f0f0f;
+  --sidebar-foreground: #e8e0d8;
   --sidebar-primary: var(--madaq-gold);
-  --sidebar-primary-foreground: #0d1117;
-  --sidebar-accent: #21262d;
-  --sidebar-accent-foreground: #e6e1d3;
-  --sidebar-border: #30363d;
+  --sidebar-primary-foreground: #0f0f0f;
+  --sidebar-accent: #252525;
+  --sidebar-accent-foreground: #e8e0d8;
+  --sidebar-border: #333;
   --sidebar-ring: var(--madaq-gold);
 }
 
@@ -136,12 +137,12 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--madaq-gold);
+  background: #d4af37;
   border-radius: 99px;
   opacity: 0.5;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--madaq-gold);
+  background: #d4af37;
   opacity: 0.8;
 }
 
@@ -174,10 +175,6 @@
   background-color: var(--madaq-gold);
 }
 
-.bg-madaq-green {
-  background-color: var(--madaq-dark-green);
-}
-
 .text-madaq-gold {
   color: var(--madaq-gold);
 }
@@ -188,20 +185,10 @@
 }
 .menu-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px -5px rgba(10, 77, 58, 0.15);
+  box-shadow: 0 8px 25px -5px rgba(212, 175, 55, 0.15);
 }
 .dark .menu-card:hover {
   box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4);
-}
-
-/* Logo shimmer animation */
-@keyframes shimmer {
-  0% { opacity: 0.8; }
-  50% { opacity: 1; }
-  100% { opacity: 0.8; }
-}
-.logo-shimmer {
-  animation: shimmer 3s ease-in-out infinite;
 }
 
 /* Circular category hover */

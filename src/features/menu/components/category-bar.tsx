@@ -56,18 +56,18 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                 className={cn(
                   'w-[68px] h-[68px] sm:w-[76px] sm:h-[76px] rounded-full flex items-center justify-center border-2 transition-all',
                   activeCategoryId === null
-                    ? 'border-[#d4af37] bg-[#0a4d3a]/10 shadow-md'
+                    ? 'border-[#d4af37] bg-[#d4af37]/10 shadow-md'
                     : 'border-border bg-card hover:border-[#d4af37]/40'
                 )}
               >
-                <svg viewBox="0 0 24 24" className={cn('size-7', activeCategoryId === null ? 'text-[#0a4d3a]' : 'text-muted-foreground')}>
+                <svg viewBox="0 0 24 24" className={cn('size-7', activeCategoryId === null ? 'text-[#d4af37]' : 'text-muted-foreground')}>
                   <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" fill="currentColor" />
                 </svg>
               </div>
               <span
                 className={cn(
                   'text-[11px] sm:text-xs font-medium transition-colors',
-                  activeCategoryId === null ? 'text-[#0a4d3a] dark:text-[#d4af37]' : 'text-muted-foreground'
+                  activeCategoryId === null ? 'text-[#d4af37]' : 'text-muted-foreground'
                 )}
               >
                 {language === 'ar' ? 'الكل' : 'All'}
@@ -117,7 +117,7 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                   <span
                     className={cn(
                       'text-[11px] sm:text-xs font-medium transition-colors max-w-[76px] truncate',
-                      isActive ? 'text-[#0a4d3a] dark:text-[#d4af37]' : 'text-muted-foreground'
+                      isActive ? 'text-[#d4af37]' : 'text-muted-foreground'
                     )}
                   >
                     {label}
