@@ -2,11 +2,31 @@
 
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { useLanguage } from './language-context';
 import { cn } from '@/lib/utils';
-import { LayoutGrid } from 'lucide-react';
+import {
+  LayoutGrid,
+  Flame,
+  Sandwich,
+  Salad,
+  Wine,
+  CakeSlice,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import type { Category, ApiResponse } from '@/types';
+
+const categoryIcons: Record<string, LucideIcon> = {
+  المشويات: Flame,
+  Grills: Flame,
+  الساندويتشات: Sandwich,
+  Sandwiches: Sandwich,
+  المقبلات: Salad,
+  Appetizers: Salad,
+  المشروبات: Wine,
+  Beverages: Wine,
+  الحلويات: CakeSlice,
+  Desserts: CakeSlice,
+};
 
 interface CategoryBarProps {
   activeCategoryId: string | null;
@@ -40,7 +60,7 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
           {isLoading ? (
             Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="flex flex-col items-center gap-2 shrink-0">
-                <div className="w-[64px] h-[64px] sm:w-[72px] sm:h-[72px] rounded-full bg-secondary animate-pulse" />
+                <div className="w-[56px] h-[56px] sm:w-[62px] sm:h-[62px] rounded-full bg-secondary animate-pulse" />
                 <div className="h-3 w-12 rounded bg-secondary animate-pulse" />
               </div>
             ))
@@ -51,20 +71,20 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                 whileTap={{ scale: 0.93 }}
                 onClick={() => onSelectCategory(null)}
                 className={cn(
-                  'flex flex-col items-center gap-2.5 shrink-0 category-circle',
+                  'flex flex-col items-center gap-2 shrink-0 category-circle',
                   activeCategoryId === null && 'active'
                 )}
               >
                 <div
                   className={cn(
-                    'w-[64px] h-[64px] sm:w-[72px] sm:h-[72px] rounded-full flex items-center justify-center border-2 transition-all duration-200',
+                    'w-[56px] h-[56px] sm:w-[62px] sm:h-[62px] rounded-full flex items-center justify-center border-2 transition-all duration-200',
                     activeCategoryId === null
                       ? 'border-[#d4af37] bg-[#3e2723]/10 shadow-lg shadow-[#d4af37]/20'
                       : 'border-border bg-card hover:border-[#d4af37]/50'
                   )}
                 >
                   <LayoutGrid className={cn(
-                    'size-6 transition-colors',
+                    'size-5 transition-colors',
                     activeCategoryId === null ? 'text-[#3e2723]' : 'text-muted-foreground'
                   )} />
                 </div>
@@ -78,10 +98,11 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                 </span>
               </motion.button>
 
-              {/* Category circles */}
+              {/* Category circles — icons only, no images */}
               {categories.map((cat, index) => {
                 const label = language === 'ar' ? cat.nameAr : cat.nameEn;
                 const isActive = activeCategoryId === cat.id;
+                const Icon = categoryIcons[cat.nameAr] || categoryIcons[cat.nameEn] || LayoutGrid;
 
                 return (
                   <motion.button
@@ -92,31 +113,22 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                     transition={{ duration: 0.3, delay: index * 0.06 }}
                     onClick={() => onSelectCategory(isActive ? null : cat.id)}
                     className={cn(
-                      'flex flex-col items-center gap-2.5 shrink-0 category-circle',
+                      'flex flex-col items-center gap-2 shrink-0 category-circle',
                       isActive && 'active'
                     )}
                   >
                     <div
                       className={cn(
-                        'w-[64px] h-[64px] sm:w-[72px] sm:h-[72px] rounded-full overflow-hidden border-2 transition-all duration-200',
+                        'w-[56px] h-[56px] sm:w-[62px] sm:h-[62px] rounded-full flex items-center justify-center border-2 transition-all duration-200',
                         isActive
-                          ? 'border-[#d4af37] shadow-lg shadow-[#d4af37]/20'
-                          : 'border-border hover:border-[#d4af37]/50'
+                          ? 'border-[#d4af37] bg-[#3e2723]/10 shadow-lg shadow-[#d4af37]/20'
+                          : 'border-border bg-card hover:border-[#d4af37]/50'
                       )}
                     >
-                      {cat.imageUrl ? (
-                        <Image
-                          src={cat.imageUrl}
-                          alt={label}
-                          fill
-                          className="object-cover"
-                          sizes="72px"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-secondary flex items-center justify-center">
-                          <span className="text-lg font-bold text-muted-foreground/40">{cat.nameEn?.charAt(0)}</span>
-                        </div>
-                      )}
+                      <Icon className={cn(
+                        'size-5 transition-colors',
+                        isActive ? 'text-[#3e2723]' : 'text-muted-foreground'
+                      )} />
                     </div>
                     <span
                       className={cn(
