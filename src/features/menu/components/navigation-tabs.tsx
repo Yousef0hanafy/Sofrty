@@ -16,7 +16,7 @@ export function NavigationTabs() {
   const [activeTab, setActiveTab] = useState('menu');
 
   return (
-    <div className="bg-[#1a1a1a] dark:bg-[#111]">
+    <div className="bg-[#3e2723] dark:bg-[#2c1b10]">
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex items-center justify-center gap-1">
           {tabs.map((tab) => {

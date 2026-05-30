@@ -40,26 +40,21 @@ export function HeroSection() {
             sizes="100vw"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#3e2723] to-[#2c1b10]" />
         )}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/50" />
 
         {/* Centered content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-4">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
           {/* Logo */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
           >
-            <div className="rounded-full p-[5px] bg-gradient-to-br from-[#d4af37] via-[#e8cc6e] to-[#d4af37] shadow-2xl">
-              <div className="rounded-full overflow-hidden bg-black">
-                <MadaqLogo size={120} className="sm:!w-[140px] sm:!h-[140px]" />
-              </div>
-            </div>
+            <MadaqLogo size={200} priority />
           </motion.div>
 
           {/* Restaurant name */}
@@ -67,9 +62,9 @@ export function HeroSection() {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg tracking-wide"
+            className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg tracking-wide mt-2"
           >
-            {name || 'مضيق'}
+            {name || 'Madaq'}
           </motion.h1>
 
           {/* Gold decorative line */}
@@ -80,7 +75,7 @@ export function HeroSection() {
             className="w-16 h-[1px] bg-[#d4af37]/70"
           />
 
-          {/* Social links */}
+          {/* Social media links */}
           <motion.div
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -121,7 +116,7 @@ export function HeroSection() {
         </div>
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#faf8f5] to-transparent dark:from-[#0f0f0f]" />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#f5f0e6] to-transparent dark:from-[#1a1410]" />
       </div>
     </motion.section>
   );

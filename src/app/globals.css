@@ -3,79 +3,79 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Madaq Restaurant Theme - Black + Gold + Brown */
+/* Madaq Restaurant Theme - Dark Brown + Gold (No Green) */
 :root {
   --radius: 0.75rem;
+  --madaq-brown: #3e2723;
+  --madaq-brown-light: #5d4037;
   --madaq-gold: #d4af37;
   --madaq-gold-light: #e8cc6e;
-  --madaq-brown: #5d4037;
-  --madaq-brown-light: #795548;
-  --madaq-dark: #1a1a1a;
-  --madaq-cream: #faf8f5;
-  --background: var(--madaq-cream);
-  --foreground: #1a1a1a;
+  --madaq-cream: #faf6ef;
+  --madaq-warm: #f5f0e6;
+  --background: var(--madaq-warm);
+  --foreground: #2c1b10;
   --card: #ffffff;
-  --card-foreground: #1a1a1a;
+  --card-foreground: #2c1b10;
   --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
-  --primary: var(--madaq-gold);
-  --primary-foreground: #1a1a1a;
-  --secondary: #f0ebe3;
-  --secondary-foreground: #3e2c25;
-  --muted: #e8e0d8;
-  --muted-foreground: #8b7d74;
+  --popover-foreground: #2c1b10;
+  --primary: var(--madaq-brown);
+  --primary-foreground: #faf6ef;
+  --secondary: #ece6da;
+  --secondary-foreground: #3e2723;
+  --muted: #ece6da;
+  --muted-foreground: #8a7d6b;
   --accent: var(--madaq-gold);
-  --accent-foreground: #1a1a1a;
+  --accent-foreground: #2c1b10;
   --destructive: #dc2626;
-  --border: #ddd5cb;
-  --input: #ddd5cb;
-  --ring: var(--madaq-gold);
-  --chart-1: var(--madaq-gold);
-  --chart-2: var(--madaq-brown);
-  --chart-3: #8d6e63;
+  --border: #ddd5c6;
+  --input: #ddd5c6;
+  --ring: var(--madaq-brown);
+  --chart-1: var(--madaq-brown);
+  --chart-2: var(--madaq-gold);
+  --chart-3: #6d4c41;
   --chart-4: #a1887f;
-  --chart-5: #6d4c41;
-  --sidebar: #f5f0e8;
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: var(--madaq-gold);
-  --sidebar-primary-foreground: #1a1a1a;
+  --chart-5: #8d6e63;
+  --sidebar: #f0ebe0;
+  --sidebar-foreground: #2c1b10;
+  --sidebar-primary: var(--madaq-brown);
+  --sidebar-primary-foreground: #faf6ef;
   --sidebar-accent: var(--madaq-gold);
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #ddd5cb;
-  --sidebar-ring: var(--madaq-gold);
+  --sidebar-accent-foreground: #2c1b10;
+  --sidebar-border: #ddd5c6;
+  --sidebar-ring: var(--madaq-brown);
 }
 
 .dark {
-  --background: #0f0f0f;
-  --foreground: #e8e0d8;
-  --card: #1a1a1a;
-  --card-foreground: #e8e0d8;
-  --popover: #1a1a1a;
-  --popover-foreground: #e8e0d8;
+  --background: #1a1410;
+  --foreground: #ece6da;
+  --card: #241e18;
+  --card-foreground: #ece6da;
+  --popover: #241e18;
+  --popover-foreground: #ece6da;
   --primary: var(--madaq-gold);
-  --primary-foreground: #0f0f0f;
-  --secondary: #252525;
-  --secondary-foreground: #d4c8bb;
-  --muted: #252525;
-  --muted-foreground: #8b7d74;
+  --primary-foreground: #1a1410;
+  --secondary: #2e2520;
+  --secondary-foreground: #ece6da;
+  --muted: #2e2520;
+  --muted-foreground: #8a7d6b;
   --accent: var(--madaq-gold);
-  --accent-foreground: #0f0f0f;
+  --accent-foreground: #1a1410;
   --destructive: #f87171;
-  --border: #333;
-  --input: #333;
+  --border: #3d3228;
+  --input: #3d3228;
   --ring: var(--madaq-gold);
   --chart-1: var(--madaq-gold);
-  --chart-2: #8d6e63;
+  --chart-2: #6d4c41;
   --chart-3: #a1887f;
-  --chart-4: var(--madaq-brown);
-  --chart-5: #6d4c41;
-  --sidebar: #0f0f0f;
-  --sidebar-foreground: #e8e0d8;
+  --chart-4: #d4af37;
+  --chart-5: #8d6e63;
+  --sidebar: #1a1410;
+  --sidebar-foreground: #ece6da;
   --sidebar-primary: var(--madaq-gold);
-  --sidebar-primary-foreground: #0f0f0f;
-  --sidebar-accent: #252525;
-  --sidebar-accent-foreground: #e8e0d8;
-  --sidebar-border: #333;
+  --sidebar-primary-foreground: #1a1410;
+  --sidebar-accent: #2e2520;
+  --sidebar-accent-foreground: #ece6da;
+  --sidebar-border: #3d3228;
   --sidebar-ring: var(--madaq-gold);
 }
 
@@ -179,13 +179,17 @@
   color: var(--madaq-gold);
 }
 
+.bg-madaq-brown {
+  background-color: var(--madaq-brown);
+}
+
 /* Optimized card hover */
 .menu-card {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .menu-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px -5px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 8px 25px -5px rgba(62, 39, 35, 0.15);
 }
 .dark .menu-card:hover {
   box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4);

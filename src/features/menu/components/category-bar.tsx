@@ -25,14 +25,12 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
 
   return (
     <div className="w-full max-w-5xl mx-auto px-4 py-5">
-      {/* Section title */}
       <div className="text-center mb-5">
         <h2 className="text-lg font-semibold text-foreground">
           {language === 'ar' ? 'اصنع اختيارك' : 'Make Your Choice'}
         </h2>
       </div>
 
-      {/* Circular category icons */}
       <div className="flex items-start justify-center gap-4 sm:gap-6 overflow-x-auto hide-scrollbar pb-2 px-2">
         {isLoading ? (
           Array.from({ length: 5 }).map((_, i) => (
@@ -43,7 +41,6 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
           ))
         ) : (
           <>
-            {/* "All" option */}
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => onSelectCategory(null)}
@@ -56,25 +53,24 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                 className={cn(
                   'w-[68px] h-[68px] sm:w-[76px] sm:h-[76px] rounded-full flex items-center justify-center border-2 transition-all',
                   activeCategoryId === null
-                    ? 'border-[#d4af37] bg-[#d4af37]/10 shadow-md'
+                    ? 'border-[#d4af37] bg-[#3e2723]/10 shadow-md'
                     : 'border-border bg-card hover:border-[#d4af37]/40'
                 )}
               >
-                <svg viewBox="0 0 24 24" className={cn('size-7', activeCategoryId === null ? 'text-[#d4af37]' : 'text-muted-foreground')}>
+                <svg viewBox="0 0 24 24" className={cn('size-7', activeCategoryId === null ? 'text-[#3e2723]' : 'text-muted-foreground')}>
                   <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" fill="currentColor" />
                 </svg>
               </div>
               <span
                 className={cn(
                   'text-[11px] sm:text-xs font-medium transition-colors',
-                  activeCategoryId === null ? 'text-[#d4af37]' : 'text-muted-foreground'
+                  activeCategoryId === null ? 'text-[#3e2723] dark:text-[#d4af37]' : 'text-muted-foreground'
                 )}
               >
                 {language === 'ar' ? 'الكل' : 'All'}
               </span>
             </motion.button>
 
-            {/* Category circles */}
             {categories.map((cat, index) => {
               const label = language === 'ar' ? cat.nameAr : cat.nameEn;
               const isActive = activeCategoryId === cat.id;
@@ -117,7 +113,7 @@ export function CategoryBar({ activeCategoryId, onSelectCategory }: CategoryBarP
                   <span
                     className={cn(
                       'text-[11px] sm:text-xs font-medium transition-colors max-w-[76px] truncate',
-                      isActive ? 'text-[#d4af37]' : 'text-muted-foreground'
+                      isActive ? 'text-[#3e2723] dark:text-[#d4af37]' : 'text-muted-foreground'
                     )}
                   >
                     {label}

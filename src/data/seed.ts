@@ -9,7 +9,7 @@ export const restaurantDefaults = {
     "Madaq Restaurant - An exceptional dining experience that blends authentic Arabian flavors with modern culinary techniques. We serve the finest dishes prepared from the freshest premium ingredients with meticulous care.",
   heroImage: "/madaq-hero.jpg",
   instagramUrl: "https://instagram.com/madaq",
-  whatsappNumber: "+966501234567",
+  whatsappNumber: "+201100475722",
   mapsUrl: "https://maps.google.com/?q=25.2048,55.2708",
   primaryColor: "#c8a96e",
 };

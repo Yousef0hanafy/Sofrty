@@ -56,7 +56,6 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
       className="menu-card w-full text-start bg-card border border-border/50 rounded-2xl overflow-hidden cursor-pointer group"
     >
       <div className="flex gap-3 p-3">
-        {/* Image */}
         <div className="shrink-0 w-[88px] h-[88px] sm:w-[100px] sm:h-[100px] rounded-xl overflow-hidden bg-secondary/50 relative">
           {imageUrl && !imgError ? (
             <Image
@@ -72,10 +71,9 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
               <UtensilsCrossed className="size-6 text-muted-foreground/20" />
             </div>
           )}
-          {/* Popular badge on image */}
           {isPopular && (
             <div className="absolute top-1 start-1">
-              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#0a4d3a] text-[#d4af37]">
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-[#3e2723] text-[#d4af37]">
                 <Star className="size-2.5" />
               </span>
             </div>
@@ -89,7 +87,6 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
           )}
         </div>
 
-        {/* Content */}
         <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
           <div className="space-y-1">
             <h3 className="font-semibold text-sm sm:text-[15px] text-foreground leading-tight">
@@ -117,7 +114,6 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
             )}
           </div>
 
-          {/* Bottom row: calories + price */}
           <div className="flex items-center justify-between mt-1.5">
             <div className="flex items-center gap-1 text-[11px] text-muted-foreground">
               <Flame className="size-3 text-[#d4af37]" />
@@ -133,7 +129,7 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
             </div>
 
             {minPrice > 0 && (
-              <span className="text-xs font-bold text-[#0a4d3a] dark:text-[#d4af37]">
+              <span className="text-xs font-bold text-[#3e2723] dark:text-[#d4af37]">
                 {priceText}
               </span>
             )}

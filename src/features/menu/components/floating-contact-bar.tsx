@@ -56,7 +56,7 @@ export function FloatingContactBar() {
       transition={{ duration: 0.3, delay: 1.5, ease: 'easeOut' }}
       className="fixed bottom-4 left-1/2 -translate-x-1/2 z-30"
     >
-      <div className="flex items-center gap-0.5 bg-[#1a1a1a]/95 backdrop-blur-lg rounded-2xl border border-[#d4af37]/20 shadow-lg px-1.5 py-1">
+      <div className="flex items-center gap-0.5 bg-[#3e2723]/95 backdrop-blur-lg rounded-2xl border border-[#d4af37]/20 shadow-lg px-1.5 py-1">
         {availableLinks.map((link) => (
           <a
             key={link.label}
