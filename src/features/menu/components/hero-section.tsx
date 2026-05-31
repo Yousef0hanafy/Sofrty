@@ -65,7 +65,7 @@ export function HeroSection() {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3e2723] drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] tracking-wide"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#d4af37] drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] tracking-wide"
           >
             {name || 'Madaq'}
           </motion.h1>
@@ -83,7 +83,7 @@ export function HeroSection() {
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.55 }}
-            className="text-[#5d4037]/70 text-xs sm:text-sm font-light tracking-wider"
+            className="text-white text-xs sm:text-sm font-light tracking-wider"
           >
             {language === 'ar' ? 'تجربة طعام استثنائية' : 'An Exceptional Dining Experience'}
           </motion.p>
