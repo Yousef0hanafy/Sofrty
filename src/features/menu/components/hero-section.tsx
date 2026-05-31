@@ -6,10 +6,12 @@ import { motion } from 'framer-motion';
 import { Instagram, MapPin, Phone } from 'lucide-react';
 import { useLanguage } from './language-context';
 import type { Restaurant, ApiResponse } from '@/types';
+import { useLanguageStore } from "@/store/app-store";
+import { Languages } from "lucide-react";
 
 export function HeroSection() {
   const { language } = useLanguage();
-
+  const { language, toggleLanguage } = useLanguageStore();
   const { data: response } = useQuery<ApiResponse<Restaurant>>({
     queryKey: ['restaurant'],
     queryFn: () => fetch('/api/restaurant').then((r) => r.json()),
@@ -34,12 +36,21 @@ export function HeroSection() {
             sizes="100vw"
           />
         ) : null}
-
+        
         {/* Light overlay when no hero image */}
         {!heroImage && (
           <div className="absolute inset-0 bg-gradient-to-b from-[#f5efe6]/90 via-[#ede4d3]/80 to-[#e8dcc8]/90" />
         )}
 
+       {/* Language Toggle Button */}
+        <button
+          onClick={toggleLanguage}
+          className="absolute top-4 end-4 z-10 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-sm text-[#3E2723] hover:bg-white transition-all text-sm font-medium shadow-sm"
+        >
+          <Languages className="size-4" />
+          {language === "ar" ? "EN" : "عربي"}
+        </button>
+        
         {/* Centered content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4">
           {/* Logo — transparent background logo in elegant circle */}
