@@ -25,11 +25,9 @@ export function Footer() {
 
       <div className="max-w-5xl mx-auto px-5 py-6">
         {/* Brand row */}
-        <div className="flex items-center justify-center gap-3 mb-5">
-          <MadaqLogoSmall size={40} />
+        <div className="flex items-center justify-center mb-5">
           <span className="text-lg font-bold text-white">{name || 'Madaq'}</span>
         </div>
-
         {/* Contact icons row */}
         <div className="flex items-center justify-center gap-4 mb-4">
           {restaurant?.whatsappNumber && (
