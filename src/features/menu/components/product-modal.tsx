@@ -70,7 +70,7 @@ export function ProductModal({ product, open, onOpenChange }: ProductModalProps)
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-md max-h-[85vh] overflow-y-auto p-0 gap-0 rounded-2xl">
+      <DialogContent showCloseButton={false} className="sm:max-w-md max-h-[85vh] overflow-y-auto p-0 gap-0 rounded-2xl">
         {/* Image */}
         <div className="relative h-[220px] w-full overflow-hidden bg-secondary/50">
           {imageUrl ? (
