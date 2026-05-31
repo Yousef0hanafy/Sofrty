@@ -6,12 +6,12 @@ import { motion } from 'framer-motion';
 import { Instagram, MapPin, Phone } from 'lucide-react';
 import { useLanguage } from './language-context';
 import type { Restaurant, ApiResponse } from '@/types';
-import { useLanguageStore } from "@/store/app-store";
+import { useAppStore } from "@/store/app-store";
 import { Languages } from "lucide-react";
 
 export function HeroSection() {
   const { language } = useLanguage();
-  const { language, toggleLanguage } = useLanguageStore();
+  const toggleLanguage = useAppStore((s) => s.toggleLanguage);
   const { data: response } = useQuery<ApiResponse<Restaurant>>({
     queryKey: ['restaurant'],
     queryFn: () => fetch('/api/restaurant').then((r) => r.json()),
